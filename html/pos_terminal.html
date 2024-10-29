@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Navigation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/pos_terminal.css"> 
+    <link rel="stylesheet" href="/graphics/fonts/fonts.css">
+    <link rel="stylesheet" href="/graphics/color/colors.css">
+    <link rel="stylesheet" href="/dist/output.css">
+</head>
+<body class="flex">
+    <!-- Sidebar Navigation -->
+    <div id="sidebar" class="sidebar shadow-2xl text-black h-screen p-4 flex flex-col justify-between">
+        <!-- Top section for button and logo -->
+        <div>
+            <!-- Button positioned at the top right corner -->
+            <div class="flex justify-end mb-4 relative">
+                <button class="toggle-btn bg-olive-green text-white w-8 h-8 rounded hover:bg-green-700" onclick="toggleSidebar()">☰</button>
+            </div>
+            
+            <!-- Logo below the button -->
+            <div class="flex justify-center mb-4">
+                <img src="../graphics/pictures/Shepherd_Animal_Clinic_Logo.png" alt="Clinic Logo" class="logo transition-all duration-300">
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="nav-links mt-10">
+                <a href="/html/pos_terminal.html" data-title="POS_Terminal" class="sidebar-link custom-hover text-black block py-2 px-4 text-center mb-2">POS Terminal</a>
+                <a href="#sales_report" data-title="Sales_Report" class="sidebar-link custom-hover text-black block py-2 px-4 text-center">Sales Report</a>
+            </div>
+        </div>
+
+        <!-- Logout Link at the Bottom of the Sidebar -->
+        <div class="logout-button-container flex flex-col justify-center items-center mt-auto">
+            <!-- "Eden Santillan" Text with Circle Initials Inside Border -->
+            <span class="eden-name flex items-center text-center mt-3 mb-3 border-medium-dark-green relative">
+                <!-- Circle with Initials Inside the Border -->
+                <span class="flex items-center justify-center bg-pastel-green rounded-full text-black font-inter text-[14px] w-8 h-8 mr-2 relative">
+                    ES
+                    <!-- Active status indicator -->
+                    <span class="active-indicator absolute"></span>
+                </span>
+                Eden Santillan
+            </span>
+
+        
+            <!-- Logout Link at the Bottom of the Sidebar -->
+            <a href="#login.html" class="sidebar-link logout custom-hover flex items-center justify-center text-medium-dark-green block py-2 px-4 text-center">
+                <img src="../graphics/icons/Logout.png" alt="Logout Icon" class="w-5 h-5 mr-2">
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content flex-1 transition-all duration-300">
+        <h1 class="text-2xl">Main Content</h1>
+        <p class="bg-medium-dark-green">This is the main content area. It will expand when the sidebar is partially collapsed.</p>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const logo = document.querySelector('.logo');
+            sidebar.classList.toggle('collapsed');
+            logo.classList.toggle('collapsed');
+        }
+
+        // Function to toggle active state
+        function setActiveLink(event) {
+            // Remove active class from all links
+            document.querySelectorAll('.sidebar-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Add active class to the clicked link
+            event.currentTarget.classList.add('active');
+        }
+
+        // Attach the setActiveLink function to each sidebar link
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+            link.addEventListener('click', setActiveLink);
+        });
+    </script>
+</body>
+</html>

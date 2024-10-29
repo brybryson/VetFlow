@@ -1,0 +1,12 @@
+/* Importing Custom Fonts */
+@font-face {
+    font-family: 'Inter Medium';
+    src: url('../graphics/fonts/Inter_18pt-Medium.ttf') format('truetype');
+    font-weight: 500; /* Adjust weight as necessary */
+}
+
+@font-face {
+    font-family: 'Inter Regular';
+    src: url('../graphics/fonts/Inter_18pt-Regular.ttf') format('truetype');
+    font-weight: 400; /* Adjust weight as necessary */
+}

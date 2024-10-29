@@ -1,0 +1,176 @@
+
+.custom-container {
+    width: 800px;
+    height: 500px;
+    background-color: white;
+    border-radius: 30px; /* Rounded corners */
+    box-shadow: 0px 4px 30px 10px rgba(0, 0, 0, 0.2); /* Shadow */
+    overflow: hidden; /* Ensures the image fits within the container */
+}
+
+/* Style for the background image */
+body {
+    background-image: url('../graphics/pictures/vectors-login background.png'); /* Path to your background image */
+    background-size: 1100px 470px; /* Adjust the size of the background */
+    background-repeat: no-repeat;
+    background-position: center; /* Centers the image */
+    background-attachment: fixed; /* Keeps the background in place when scrolling */
+}
+
+/* right side of the container */
+.img-custom {
+    width: 400px; /* Set a default width */
+    height: 560px; /* Keep aspect ratio */
+}
+
+/* Logo and text styles */
+.clinic-logo {
+    width: 110px; /* Set a smaller width for the logo */
+    height: auto; /* Keep aspect ratio */
+    margin-top: -45px;
+}
+
+/* Container for logo and texts */
+.logo-text-container {
+    display: flex; /* Use flexbox to arrange items */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+/* Welcome text style */
+.welcome-text {
+    font-size: 40px; 
+    font-family: 'Inter Medium', sans-serif; 
+    font-weight: 550;
+    color: var(--olive-green); 
+    margin: 0px 0 5px 0;
+    text-align: center; 
+}
+
+/* Login instruction style */
+.login-instruction {
+    font-size: 13px; 
+    font-family: 'Inter Regular', sans-serif;
+    color: var(--olive-green); 
+    line-height: 0; 
+    text-align: center;
+    margin-bottom: 30px; 
+}
+
+
+
+/* Button styling with gradient background */
+.btn-primary {
+    margin-top: 50px; /* 15px space above the button */
+    border-radius: 30px; /* Rounded corners for the button */
+    width: 100%; /* Ensure button takes full width */
+    background: linear-gradient(to right, #75A450, #E1D66D); /* Gradient from left to right */
+    border: none; /* Remove border */
+    color: white; /* Button text color */
+    font-size: 15px; /* Font size of the "Login" text */
+    font-family: 'Inter Bold', sans-serif; /* Font style for "Login" */
+    text-transform: uppercase; /* Make the text uppercase */
+    padding: 10px 20px; /* Add padding for better button size */
+   
+}
+
+/* Change to solid color on hover */
+.btn-primary:hover {
+    background: #75A450; /* Solid olive-green on hover */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+
+/* Custom input styles for EID and Password */
+.custom-input {
+    border-radius: 30px; /* Keep the rounded corners */
+    border: 2px solid var(--olive-green); /* Olive green border */
+    font-family: 'Inter Regular', sans-serif;
+    font-size: 14px; /* Customize font size */
+    font-style: italic; /* Italicize placeholder text */
+    margin-bottom: -15px;
+    
+}
+
+
+
+/* Change border color on focus and hover */
+.custom-input:focus,
+.custom-input:hover {
+    border: 2px solid rgba(117, 164, 80, 0.8); /* Use rgba for a spread effect */
+    box-shadow: 0 0 10px rgba(117, 164, 80, 0.8); /* Shadow effect */
+}
+
+/* Customize placeholder */
+.custom-input::placeholder {
+    font-style: italic; /* Italicized placeholder */
+    font-size: 12px; /* Slightly smaller placeholder text */
+}
+
+/* Label styles */
+.custom-label {
+    font-family: 'Inter Medium', sans-serif;
+    font-size: 12px;
+    color: var(--dark-charcoal);
+    margin-bottom: 5px;
+}
+
+/* Adjusted form group for password to position icon correctly */
+.form-group.mb-3 {
+    position: relative; /* Ensure the icon is positioned inside the input box */
+}
+
+#password {
+    padding-right: 45px; /* Adjust this value if needed */
+}
+
+/* Hide/Unhide icon styling */
+.toggle-password {
+    position: absolute; /* Positioning the icon absolutely */
+    top: 50%; /* Center it vertically */
+    right: 15px; /* Adjust right position */
+    transform: translateY(30%); /* Center vertically */
+    cursor: pointer;
+    color: var(--olive-green);
+}
+
+/* Additional padding for the input field to make space for the left icon */
+.input-icon-wrapper input {
+    padding-left: 45px; /* This should remain as is for the left icon */
+}
+
+
+
+/* Add padding-left to the input field to make room for the icon */
+.input-icon-wrapper {
+    position: relative; /* Ensures the icon stays within the input field */
+}
+
+/* Icon positioning inside the input field, aligned with the left side */
+.input-icon {
+    position: absolute;
+    top: 50%; /* Center the icon vertically */
+    left: 15px; 
+    transform: translateY(-50%);
+    width: 20px; 
+    height: 20px; 
+    pointer-events: none; 
+}
+
+/* Padding-left to the input field to make space for the icon */
+.custom-input {
+    padding-left: 45px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .custom-container {
+        width: 90%;
+        height: auto;
+    }
+
+    .img-custom {
+        width: 300px;
+        height: auto;
+    }
+}

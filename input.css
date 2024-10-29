@@ -1,0 +1,19 @@
+/* input.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Importing Custom Fonts */
+@font-face {
+    font-family: 'Inter Medium';
+    src: url('../graphics/fonts/Inter_18pt-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Inter Regular';
+    src: url('../graphics/fonts/Inter_18pt-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+/* Other custom styles can go here */

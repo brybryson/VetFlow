@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/graphics/fonts/fonts.css">
+    <link rel="stylesheet" href="/graphics/color/colors.css">
+    <link rel="stylesheet" href="/css/login1.css">
+
+    <link rel="stylesheet" href="dist/output.css">
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="custom-container row"> <!-- Added row class -->
+            <!-- Left Side: Logo and Login Form -->
+            <div class="col-md-6 login-left d-flex flex-column justify-content-center align-items-center">
+                <img src="../graphics/pictures/Shepherd_Animal_Clinic_Logo.png" alt="Clinic Logo" class="clinic-logo mb-2">
+                <div class="logo-text-container">
+                    <h1 class="welcome-text">Welcome!</h1>
+                    <p class="login-instruction">Login to continue</p>
+                </div>
+
+                <div class="form-group mb-3 w-75 position-relative"> <!-- EID Field -->
+                    <label for="email" class="form-label custom-label">EID Number</label>
+                    <div class="input-icon-wrapper">
+                        <input type="email" class="form-control input-rounded custom-input pl-5" id="email" placeholder="Enter EID Number">
+                        <img src="/graphics/icons/User.png" alt="User Icon" class="input-icon"> <!-- EID Icon -->
+                    </div>
+                </div>
+                
+                <div class="form-group mb-3 w-75 position-relative"> <!-- Password Field -->
+                    <label for="password" class="form-label custom-label">Password</label>
+                    <div class="input-icon-wrapper">
+                        <input type="password" class="form-control input-rounded custom-input pl-5" id="password" placeholder="Enter Password">
+                        <img src="/graphics/icons/Lock.png" alt="Lock Icon" class="input-icon"> <!-- Password Icon -->
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-75">Login</button> <!-- Centered button -->
+            </div>
+
+            <!-- Right Side: Image -->
+            <div class="col-md-6 login-right d-flex justify-content-center align-items-center">
+                <img src="../graphics/pictures/Millie-login.png" alt="Login Image" class="img-custom">
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome for Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+</html>
