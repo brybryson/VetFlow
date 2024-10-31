@@ -5,7 +5,7 @@ function validateLogin(event) {
 
     // Check credentials
     if (email === 'cashier@vetflow.com' && password === '1234') {
-        window.location.href = '/html/pos_terminal.html'; // Redirect to pos_terminal.html
+        window.location.href = '/html/pos_terminal-services.html'; // Redirect to pos_terminal.html
     } else {
         alert('Invalid email or password'); // Show an alert for invalid credentials
     }

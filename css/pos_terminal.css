@@ -1,10 +1,12 @@
 /* Sidebar styles */
 .sidebar {
+    position: fixed;
     width: 190px; /* Full width when expanded */
     transition: width 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Space out top section and bottom logout button */
+    overflow-y: auto;
 }
 
 .sidebar.collapsed {
@@ -13,12 +15,15 @@
 
 /* Adjust the margin for the content */
 .content {
-    margin-left: 15px; /* Start with 0 margin */
+    /* margin-left: 8px;  */
     transition: margin-left 0.3s ease; /* Smooth transition for margin */
+    margin-left: 200px; /* Adjust for the width of the sidebar */
+    margin-right: 410px; /* Adjust for the width of the right container */
+    padding: 20px;
 }
 
 .sidebar.collapsed + .content {
-    margin-left: 15px; /* Ensure margin is 0 when sidebar is collapsed */
+    margin-left: 60px; /* Ensure margin is 0 when sidebar is collapsed */
 }
 
 /* Sidebar button and logo styles */
@@ -156,3 +161,171 @@
     border-radius: 50%; /* Makes it a circle */
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1); /* Optional shadow for clarity */
 }
+
+
+/* Right-side container */
+.right-container {
+    width: 400px;
+    max-width: calc(100% - 200px); /* Limits width to fit within screen and sidebar */
+    position: fixed;
+    right: 0;
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    padding: 1.25rem;
+    overflow-y: auto;
+    /* z-index: 10; */
+}
+
+
+/* Sidebar and Right Container Shadow */
+.sidebar, .right-container {
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* MAIN CONTENT */
+/* POS TERMINAL Title Styling */
+.pos-title {
+    font-family: 'Inter Medium', sans-serif; /* Set font family to Inter Regular */
+    font-weight: 500; /* Change font weight to 500 */
+    font-size: 29px; /* Set font size to 29px */
+}
+
+/* Custom styles for date and time */
+.date-time {
+    font-size: 13px;
+    font-family: 'Inter Medium', sans-serif;
+    margin-left: 20px; /* Adjust margin as needed */
+    color: black; /* Adjust color as needed */
+    font-weight: normal;
+}
+
+/* Search Bar Container Styling */
+.search-bar {
+    background-color: white;
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.16);
+    border-radius: 30px;
+    padding: 0.3rem;
+    display: flex;
+    align-items: center;
+    width: 25rem;
+    margin-left: 1.5rem; /* Offset to the right */
+}
+
+/* Adjusted Search Bar Input Styling */
+.search-input {
+    font-family: 'Inter Regular', sans-serif;
+    font-size: 12px;
+    width: 22rem; /* Adjusted for space */
+    max-width: 100%;
+    padding: 0.3rem;
+    border: none;
+    outline: none;
+    color: black;
+}
+
+/* Placeholder Styling */
+.search-input::placeholder {
+    color: #A0AEC0;
+    font-style: italic;
+}
+
+/* Focused Placeholder Styling */
+.search-input:focus::placeholder {
+    color: black;
+    font-style: normal;
+}
+
+/* Search Button Styling */
+.search-button img {
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+/* Filter Button Styling */
+.filter-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.filter-button img {
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+
+/* Action Button Styling */
+.action-buttons {
+    margin-left: 1.5rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem; /* General spacing between buttons */
+}
+
+.action-button {
+    font-family: 'Inter Medium', sans-serif;
+    font-size: 12px;
+    background-color: #B4EA89;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover */
+    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.2); 
+}
+
+/* Specific Styling for View Sales History Button */
+.view-sales-history {
+    margin-left: 3rem; /* Additional spacing to move it further right */
+    background-color: #C96B00;
+    color: white;
+}
+
+/* Action Button Hover Effect */
+/* .action-button:hover {
+    background-color: #B4EA89;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+} */
+
+/* .view-sales-history:hover {
+    background-color: #A55B00;
+} */
+
+
+/* Services Container Styling */
+.services-container {
+    margin-left: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 1.25rem; /* Space between cards */
+    margin-top: 1.5rem; /* Spacing from the action buttons */
+}
+
+/* Individual Service Card Styling */
+.service-card {
+    background-color: #ffffff; /* Light background for cards */
+    color: #333; /* Text color */
+    font-family: 'Inter Medium', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    height: 10rem;
+    width: 11rem; /* Takes full column width */
+    /* max-width: 120px;  */
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Service Card Hover Effect */
+.service-card:hover {
+    background-color: #e2e8f0; /* Slightly darker shade on hover */
+}
+
+
