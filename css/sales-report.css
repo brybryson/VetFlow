@@ -1,0 +1,576 @@
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    width: 190px; /* Ensure sidebar is not too wide */
+    transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+    width: 65px; /* Collapsed width */
+}
+
+/* Adjust the margin for the content */
+.content {
+    transition: margin-left 0.3s ease; 
+    margin-left: 180px; /* Space for the sidebar */
+    margin-right: 10px;
+        margin-bottom: 10px;
+    padding: 20px 20px 20px 20px;
+}
+
+.sidebar.collapsed + .content {
+    margin-left: 80px; /* Ensure margin is 0 when sidebar is collapsed */
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+/* Sidebar button and logo styles */
+.toggle-btn {
+    transition: margin 0.3s ease; /* Smooth transition for margin */
+}
+
+.sidebar.collapsed .toggle-btn {
+    margin-bottom: 5px; /* Adjusted spacing when collapsed */
+}
+
+/* Sidebar link styles */
+.sidebar-link {
+    font-size: 14px; /* Regular font size when expanded */
+    font-family: 'Interedium', sans-serif;
+    border-radius: 500px; /* Rounding the corners */
+    padding: 8px 10px; /* Adjust padding for consistent spacing */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
+}
+
+/* Style for the POS Terminal link without hover effect */
+.sidebar-link[data-title="Sales_Report"] {
+    background-color: var(--olive-green); /* Olive green background */
+    color: white; /* Text color */
+    pointer-events: none; /* Disable hover interaction */
+}
+
+/* Hide text when sidebar is collapsed */
+.sidebar.collapsed .sidebar-link {
+    opacity: 0; /* Makes the text invisible */
+    transition: opacity 0.3s ease;
+}
+
+/* Custom hover styles */
+.custom-hover {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 500px;
+    padding: 8px 10px;
+}
+
+.custom-hover:hover {
+    background-color: var(--olive-green); 
+    color: white; 
+}
+
+.custom-hover:active {
+    background-color: var(--olive-green); 
+    color: white; 
+}
+
+/* Logo styles */
+.logo {
+    width: 60%; /* Larger logo when sidebar is expanded */
+    transition: width 0.3s ease;
+}
+
+.sidebar.collapsed .logo {
+    width: 80%; /* Adjusted size for the logo when collapsed */
+}
+
+/* Custom spacing class */
+.margin-bottom {
+    margin-bottom: 1rem; /* Adjust the value as needed */
+}
+
+/* Logout Button Styling */
+.logout-button-container {
+    margin-top: auto; /* Pushes it to the bottom of the sidebar */
+    display: flex;
+    justify-content: center; /* Center-align the logout button */
+    padding-bottom: 1rem; /* Adds spacing from the bottom */
+}
+
+.logout {
+    font-weight: bold;
+}
+
+.logout-btn {
+    font-family: 'Inter-medium', sans-serif;
+    font-size: 14px;
+    color: var(--medium-dark-green); /* Set text color to medium-dark-green */
+    display: flex;
+    align-items: center;
+    background: transparent;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.logout-btn:hover {
+    color: var(--olive-green); /* Changes text color on hover */
+}
+
+.logout-icon {
+    width: 24px; /* Icon size */
+    height: 24px;
+    margin-right: 8px; /* Adds space between icon and text */
+    transition: transform 0.3s ease;
+}
+
+/* Hide logout text when sidebar is collapsed */
+.sidebar.collapsed .logout-text {
+    display: none; /* Hide logout text */
+}
+
+.sidebar.collapsed .logout-icon {
+    transform: scale(0.9); /* Slightly scale down icon when sidebar is collapsed */
+}
+
+/* Styles for "Eden Santillan" text */
+.eden-name {
+    font-family: 'Inter-medium', sans-serif;
+    font-size: 13px;
+    color: var(--medium-dark-green);
+    border: 1.5px solid; 
+    border-radius: 500px; 
+    padding: 5px 15px;
+    transition: opacity 0.3s ease;
+}
+
+/* Hide "Eden Santillan" text when sidebar is collapsed */
+.sidebar.collapsed .eden-name {
+    opacity: 0; 
+    pointer-events: none; 
+}
+
+/* Active status indicator */
+.active-indicator {
+    position: absolute;
+    top: 1px; /* Position above the "ES" circle */
+    right: -2px; /* Position to the right within the circle border */
+    width: 10px; /* Diameter of the indicator circle */
+    height: 10px;
+    background-color: #3C8800; /* Active green */
+    border: 2px solid white; /* White border */
+    border-radius: 50%; /* Makes it a circle */
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1); /* Optional shadow for clarity */
+}
+
+
+/* Sidebar and Right Container Shadow */
+.sidebar{
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* MAIN CONTENT */
+/* POS TERMINAL Title Styling */
+/* MAIN CONTENT */
+
+
+/* New Container for Title and Date */
+.title-date-container {
+    display: flex; /* Use flexbox to keep title and date on one line */
+    flex-direction: row; /* Align title and date in a row */
+    align-items:baseline; /* Align items to the bottom */
+    margin-left: 10px; /* Space for left margin */
+
+}
+
+/* POS TERMINAL Title Styling */
+/* POS TERMINAL Title Styling */
+.module-title {
+    font-family: 'Inter Bold', sans-serif;
+    font-weight: 500;
+    font-size: 29px;
+    position: relative;
+}
+
+/* Date and Time Styling */
+.date-time {
+    font-size: 13px;
+    font-family: 'Inter Medium', sans-serif;
+    color: black;
+    margin-left: 20px;
+    font-weight: normal;
+}
+
+/* Buttons Container Styling */
+.buttons-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between buttons */
+    margin-top: 14px;
+}
+
+/* Button Styling */
+.export-report-button,
+.date-report {
+    display: flex;
+    align-items: center;
+    font-family: 'Inter Medium', sans-serif;
+    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.2);
+    font-size: 13px;
+    font-weight: normal;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+}
+
+.export-report-button {
+    background-color: #004F88;
+    width: 5.8rem; /* Set desired width */
+    height: 2.2rem;
+}
+
+.date-report {
+    background-color: #C96B00;
+    width: 8.7rem; 
+    height: 2.2rem;
+}
+
+.button-icon {
+    width: 18px;
+    height: auto;;
+    margin-right: 0.5rem;
+}
+
+
+/*                 */
+/*  report summary */
+/*                 */
+
+.report-summary {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.report-box {
+    width: 15rem;
+    height: 10rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1.2rem;
+    font-family: 'Inter Medium', sans-serif;
+    color: #000000;
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.report-labels {
+    font-size: 13px;
+}
+
+.today-sale-amount,
+.today-total-order-amount,
+.today-revenue-amount {
+    font-family: 'Inter Bold', sans-serif;
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.percentage-container {
+    display: flex;
+    align-items: center;
+    font-family: 'Inter Medium', sans-serif;
+    font-size: 13px;
+    padding: 4px 9px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.increase-percentage {
+    background-color: #CFFFA9;
+    color: #3C8800;
+}
+
+.decrease-percentage {
+    background-color: #FFD3D3;
+    color: #981C1C;
+}
+
+/* Percentage Text */
+.percentage-value {
+    margin-right: 5px;
+}
+
+/* Arrow Icon Styling */
+.percentage-arrow {
+    width: 1rem; 
+    height: auto;
+}
+
+
+/*                             */
+/* Statistics Report Container */
+/*                             */
+#orderSalesChart, #salesOverviewChart {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100%; /* Set to stay within the container's height */
+    max-width: 100%; /* Set to stay within the container's width */
+    box-sizing: border-box;
+    object-fit: contain; /* Prevents the canvas from exceeding container bounds */
+}
+
+.statistics-report-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.statistics-box {
+    width: 100%;
+    height: 23rem;
+    max-width: 50%; /* Set a max width if you want them to stay side-by-side */
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: hidden; /* Prevent overflow if content exceeds */
+    margin-left: 1.5rem;
+}
+
+.statistics-label {
+    font-family: 'Inter Medium', sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* Adjust canvas to fit container */
+#orderSalesChart {
+    margin-top: 1.5rem;
+    width: 100% !important;
+    height: auto !important;
+}
+
+
+/* Adjust canvas to fit container */
+#salesOverviewChart {
+    /* margin-top: 0.5rem; */
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* Container for Sales Overview Amount and Percentage */
+.sales-overview-amount-container {
+    display: flex;
+    align-items: center;
+    margin-top: -1rem; /* Reduce the space between Sales Overview label and amount */
+    margin-bottom: 0.5rem;
+}
+
+/* Sales Overview Amount Styling */
+.sales-overview-amount {
+    font-family: 'Inter Medium', sans-serif;
+    font-size: 25px;
+    color: #3C8800;
+    margin-right: 5px; /* Less space between amount and percentage */
+}
+
+/* Sales Overview Percentage Container */
+.sales-overview-percentage {
+    display: flex;
+    align-items: center;
+    background-color: #CFFFA9;
+    color: #3C8800;
+    padding: 3px 8px;
+    border-radius: 8px;
+    margin-left: 1rem; /* Adjust to align closer */
+    margin-bottom: 0.3rem;
+}
+
+/* Percentage Text */
+.percentage-value {
+    margin-right: 3px; /* Reduce space between text and arrow */
+}
+
+/* Arrow Icon Styling */
+.percentage-arrow {
+    width: 0.9rem;
+    height: auto;
+}
+
+
+
+/*                            */
+/*      Top Selling Part      */
+/*                           */
+.top-selling-title {
+    font-family: 'Inter Medium', sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 1rem; /* Space below title */
+    margin-left: 1.5rem; /* Align with container padding */
+    margin-top: 1rem;
+}
+
+/* Top Selling Items Container */
+.top-selling-container {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    width: 98%;
+    height: 28rem;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+    margin: 2.5rem 1.5rem 1.5rem 1.5rem;
+    border: 1px solid #6F6C6C82;
+    font-family: 'Inter Regular', sans-serif;
+    overflow: hidden; /* Prevent overflow of header */
+}
+
+/* Table Styling */
+.top-selling-table {
+    display: flex;
+    flex-direction: column;
+    max-height: 23rem; /* Adjust for scrollable height */
+    overflow-y: auto; /* Enable scrolling */
+}
+
+/* Header Row Styling */
+.table-header {
+    background-color: #f1f1f1;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+    border-top: 1px solid #6F6C6C82;
+    border-bottom: 1px solid #6F6C6C82;
+    position: sticky;
+    top: 0;
+    z-index: 1; /* Ensure it stays above rows while scrolling */
+}
+
+/* Data Row Styling */
+.table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    color: #000000;
+    font-size: 13px;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    border-bottom: 1px solid #6F6C6C82;
+    height: 3.5rem; /* Fixed row height */
+}
+
+/* Item Info: Picture + Name Styling */
+.item-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.item-picture {
+    width: auto;
+    height: 30px;
+    margin-right: 12px;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.item-name {
+    font-weight: 500;
+    line-height: 0.9rem;
+}
+
+/* Header Row Label Styling */
+.table-header span {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Align other cells in the row */
+.item-code,
+.item-sold-amount,
+.total-sell-amount,
+.current-status,
+.price-amount {
+    text-align: center;
+}
+
+.item-code {
+    padding-right: 15px; 
+}
+
+.item-sold-amount {
+    padding-right: 15px; 
+}
+
+.total-sell-amount {
+    padding-right: 10px; 
+}
+
+
+
+.price-amount {
+    padding-left: 15px; 
+}
+
+/* Last Row Border Removal */
+.table-row:last-child {
+    border-bottom: none;
+}
+
+
+/* Status Styling */
+.current-status {
+    width: 5rem;
+    height: 20px;
+    padding:1px;
+    margin-left: 38px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* Low Stock Status */
+.status-low-stock {
+    color: #BC2424;
+    background-color: #FFD3D3;
+}
+
+/* In Stock Status */
+.status-in-stock {
+    color: #004F88;
+    background-color: #C0E5FF;
+}
+
+/* Active Status */
+.status-active {
+    color: #3C8800;
+    background-color: #B4EA89;
+}
+
+/* Sort Icon Styling */
+.sort-icon {
+    background-image: url('/graphics/icons/sort-icon.png');
+    background-size:auto;
+    background-repeat: no-repeat;
+    width: 2rem; /* Adjust width to fit header size */
+    height: 2rem; /* Adjust height to fit header size */
+    display: inline-block;
+    margin-right: 4rem; /* Space between icon and label */
+    cursor: pointer;
+    vertical-align: middle; /* Align with text */
+}
+
+/* Offset the item label to make room for the icon */
+.item-label {
+    display: inline-flex;
+    align-items: center;
+}
+

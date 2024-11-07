@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shepherd Animal Clinic - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admin_page.css"> 
+    <link rel="stylesheet" href="/graphics/fonts/fonts.css">
+    <link rel="stylesheet" href="/graphics/color/colors.css">
+    <link rel="stylesheet" href="/dist/output.css">
+
+    <!-- to create graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- to generate excel file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+
+    <!-- to create pdf file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+    
+
+</head>
+<body class="flex">
+
+    <!-- Sidebar Navigation -->
+    <div id="sidebar" class="sidebar text-black h-screen p-4 flex flex-col justify-between w-64 bg-white">
+        <!-- Top section for button and logo -->
+        <div>
+            <div class="flex justify-end mb-4 relative">
+                <button class="toggle-btn bg-olive-green text-white w-8 h-8 rounded hover:bg-green-700" onclick="toggleSidebar()">☰</button>
+            </div>
+            <div class="flex justify-center mb-4">
+                <img src="../graphics/pictures/Shepherd_Animal_Clinic_Logo.png" alt="Clinic Logo" class="logo transition-all duration-300">
+            </div>
+            <!-- <div class="nav-links mt-10">
+                <a href="/html/pos_terminal-services.html" data-title="POS_Terminal" class="sidebar-link custom-hover text-black block py-2 px-4 text-center mb-2">POS Terminal</a>
+                <a href="/html/sales-report.html" data-title="Sales_Report" class="sidebar-link custom-hover text-black block py-2 px-4 text-center">Report</a>
+            </div> -->
+            <div class="nav-links mt-10">
+                <p class="sidebar-link custom-hover text-black block py-2 px-4 text-center mb-2" data-title="hello_admin">Hello, Admin!</p>
+            </div>
+            
+        </div>
+
+        <div class="logout-button-container flex flex-col justify-center items-center mt-auto">
+            <span class="eden-name flex items-center text-center mt-3 mb-3 border-medium-dark-green relative">
+                <span class="flex items-center justify-center bg-pastel-green rounded-full text-black font-inter text-[14px] w-8 h-8 mr-2 relative">
+                    TM
+                    <span class="active-indicator absolute"></span>
+                </span>
+                Trish Mercado
+            </span>
+            <a href="/html/login-tailwind.html" class="sidebar-link logout custom-hover flex items-center justify-center text-medium-dark-green block py-2 px-4 text-center">
+                <img src="../graphics/icons/Logout.png" alt="Logout Icon" class="w-5 h-5 mr-2">
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content flex-1 p-8 bg-gray-50 transition-all duration-300">
+        
+        <!--            -->
+        <!-- Title Area -->
+         <!--            -->
+        <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+                <div class="title-date-container">
+                    <h1 class="module-title">User Management</h1>
+                    <p class="module-subtitle">Manage your team members and their account here</p>
+                    <!-- <span class="date-time" id="dateTime"></span> -->
+                </div>
+            </div>
+        </div>
+
+        <!--                                                              -->
+       <!-- Search Bar Container, View Archived Text, and Add User Button -->
+        <!--                                                              -->
+
+        <div class="flex items-center justify-between mt-1">
+            <!-- Left-aligned elements: Search bar and View Archived Here -->
+            <div class="flex items-center">
+                <div class="search-bar flex items-center">
+                    <input type="text" placeholder="Search name or code" class="search-input" />
+                    <button class="search-button ml-2">
+                        <img src="/graphics/icons/search-button.png" alt="Search Button" class="w-7 h-7">
+                    </button>
+
+                    <button class="filter-button ml-2">
+                        <img src="/graphics/icons/filter.png" alt="Filter Icon" class="w-7 h-7">
+                    </button>
+                </div>
+                
+                <!-- View Archived Text to the right of the search bar -->
+                <p class="view-archived-text ml-2">View Archived Here</p>
+            </div>
+
+            <!-- Right-aligned Add User button -->
+            <div>
+                <button class="add-user-button flex items-center">
+                    Add User
+                    <img src="/graphics/icons/add-icon.png" alt="Add Icon" class="ml-1 add-icon">
+                </button>
+            </div>
+        </div>
+
+        
+        <!--                                  -->
+        <!-- User Information Container Table -->
+         <!--                                 -->
+        <div class="user-information-container mt-4">
+            <p class="user-label">All users <span class="user-number">4</span></p>
+        </div>
+
+
+        
+
+
+        <!--                       -->
+        <!-- Top Selling Container -->
+         <!--                      -->
+        
+        <div class="top-selling-container">
+            <!-- Title for the Table -->
+            <h2 class="top-selling-title">Top Selling Item</h2>
+            
+            <!-- Transaction Table -->
+            <div class="top-selling-table">
+                <!-- Table Header Row without Picture Label -->
+                <div class="table-row table-header">
+                    <span class="item-label">
+                        <span class="sort-icon"></span> <!-- Sort icon added here -->
+                        ITEM NAME
+                    </span>
+                    <span class="item-code-label">SKU</span>
+                    <span class="item-sold-label">ITEM SOLD</span>
+                    <span class="total-sell-label">TOTAL SELL</span>
+                    <span class="status-label">STATUS</span>
+                    <span class="price-label">PRICE</span>
+                </div>
+
+                <!-- Table Data Row -->
+                <div class="table-row">
+                    <span class="item-info">
+                        <img src="/graphics/pictures/floof-pets-multivitamins.png" alt="Floof Pets Multivitamins" class="item-picture">
+                        <span class="item-name">Floof Pets Cat Multivitamins</span>
+                    </span>
+                    <span class="item-code">CMV85106</span>
+                    <span class="item-sold-amount">423</span>
+                    <span class="total-sell-amount">₱65,565</span>
+                    <span class="current-status status-low-stock">Low Stock</span>
+                    <span class="price-amount">₱155.00</span>
+                </div>
+
+                <div class="table-row">
+                    <span class="item-info">
+                        <img src="/graphics/pictures/papi-mvp.png" alt="Floof Pets Multivitamins" class="item-picture">
+                        <span class="item-name">Papi MVP</span>
+                    </span>
+                    <span class="item-code">PP05641</span>
+                    <span class="item-sold-amount">367</span>
+                    <span class="total-sell-amount">₱69,730</span>
+                    <span class="current-status status-low-stock">Low Stock</span>
+                    <span class="price-amount">₱190.00</span>
+                </div>
+
+                <div class="table-row">
+                    <span class="item-info">
+                        <img src="/graphics/pictures/goodest-wet-cat-food.png" alt="Floof Pets Multivitamins" class="item-picture">
+                        <span class="item-name">Goodest Cat Tender Tuna Pate </span>
+                    </span>
+                    <span class="item-code">CT749120</span>
+                    <span class="item-sold-amount">334</span>
+                    <span class="total-sell-amount">₱13,360</span>
+                    <span class="current-status status-in-stock">In Stock</span>
+                    <span class="price-amount">₱40.00</span>
+                </div>
+
+                <div class="table-row">
+                    <span class="item-info">
+                        <img src="/graphics/pictures/Himalaya-Nefrotec-DS.png" alt="Floof Pets Multivitamins" class="item-picture">
+                        <span class="item-name">Himalaya Nefrotec DS</span>
+                    </span>
+                    <span class="item-code">PB90084</span>
+                    <span class="item-sold-amount">295</span>
+                    <span class="total-sell-amount">₱66,375</span>
+                    <span class="current-status status-low-stock">Low Stock</span>
+                    <span class="price-amount">₱255.00</span>
+                </div>
+
+                <div class="table-row">
+                    <span class="item-info">
+                        <img src="/graphics/pictures/Monodex-D-Glucose-Monohydrate.png" alt="Floof Pets Multivitamins" class="item-picture">
+                        <span class="item-name">Monodex D Glucose Monohydrate</span>
+                    </span>
+                    <span class="item-code">S98511</span>
+                    <span class="item-sold-amount">188</span>
+                    <span class="total-sell-amount">₱17,860</span>
+                    <span class="current-status status-active">Active</span>
+                    <span class="price-amount">₱95.00</span>
+                </div>
+
+                <div class="table-row">
+                    <span class="item-info">
+                        <img src="/graphics/pictures/Bengal-Pro-Immune-Cat-Treat.png" alt="Floof Pets Multivitamins" class="item-picture">
+                        <span class="item-name">Bengal Pro Immune Cat Treat</span>
+                    </span>
+                    <span class="item-code">PP30181</span>
+                    <span class="item-sold-amount">171</span>
+                    <span class="total-sell-amount">₱61,389</span>
+                    <span class="current-status status-active">Active</span>
+                    <span class="price-amount">₱359.00</span>
+                </div>
+
+                <div class="table-row">
+                    <span class="item-info">
+                        <img src="/graphics/pictures/floof-pets-multivitamins.png" alt="Floof Pets Multivitamins" class="item-picture">
+                        <span class="item-name">Floof Pets Cat Multivitamins</span>
+                    </span>
+                    <span class="item-code">CMV85106</span>
+                    <span class="item-sold-amount">423</span>
+                    <span class="total-sell-amount">₱65,565</span>
+                    <span class="current-status status-low-stock">Low Stock</span>
+                    <span class="price-amount">₱155.00</span>
+                </div>
+
+                <div class="table-row">
+                    <span class="item-info">
+                        <img src="/graphics/pictures/floof-pets-multivitamins.png" alt="Floof Pets Multivitamins" class="item-picture">
+                        <span class="item-name">Floof Pets Cat Multivitamins</span>
+                    </span>
+                    <span class="item-code">CMV85106</span>
+                    <span class="item-sold-amount">423</span>
+                    <span class="total-sell-amount">₱65,565</span>
+                    <span class="current-status status-low-stock">Low Stock</span>
+                    <span class="price-amount">₱155.00</span>
+                </div>
+
+                <div class="table-row">
+                    <span class="item-info">
+                        <img src="/graphics/pictures/floof-pets-multivitamins.png" alt="Floof Pets Multivitamins" class="item-picture">
+                        <span class="item-name">Floof Pets Cat Multivitamins</span>
+                    </span>
+                    <span class="item-code">CMV85106</span>
+                    <span class="item-sold-amount">423</span>
+                    <span class="total-sell-amount">₱65,565</span>
+                    <span class="current-status status-low-stock">Low Stock</span>
+                    <span class="price-amount">₱155.00</span>
+                </div>
+            </div>
+        </div>
+
+
+
+      
+    
+    </div>
+
+    <!-- JavaScript links -->
+    <script src="/js/sales-report.js"></script> 
+    <script src="/js/order-statistics.js"></script> 
+    <script src="/js/sales-overview.js"></script> 
+    <!-- <script src="/js/generate-reports-excel.js"></script>  -->
+    <script src="/js/generate-reports-pdf.js"></script> 
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar Navigation</title>
+  <style>
+    /* Basic reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+
+    /* Sidebar styles */
+    .sidebar {
+      width: 250px;
+      background-color: #333;
+      color: #fff;
+      height: 100vh;
+      padding-top: 20px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      transition: width 0.3s ease;
+      text-align: center; /* Center text */
+    }
+
+    .sidebar.collapsed {
+      width: 60px;
+    }
+
+    .sidebar a {
+      color: #fff;
+      padding: 15px;
+      text-decoration: none;
+      display: block;
+      transition: background 0.3s;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .sidebar a:hover {
+      background: #444;
+    }
+
+    /* Toggle button */
+    .toggle-btn {
+      background: #444;
+      color: #fff;
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      font-size: 18px;
+      width: 100%;
+      text-align: center;
+      transition: background 0.3s ease;
+      margin-bottom: 10px; /* Space below the button */
+    }
+
+    .toggle-btn:hover {
+      background: #555;
+    }
+
+    /* Logo styles */
+    .logo {
+      width: 30%; /* Adjust logo size when sidebar is expanded */
+      margin: 10px auto; /* Center the logo */
+      display: block; /* Allow margin auto to center */
+      transition: width 0.3s ease; /* Smooth transition for width */
+    }
+
+    .sidebar.collapsed .logo {
+      width: 50%; /* Smaller logo when sidebar is collapsed */
+    }
+
+    /* Content area */
+    .content {
+      margin-left: 250px;
+      padding: 20px;
+      width: calc(100% - 250px);
+      transition: margin-left 0.3s ease, width 0.3s ease;
+    }
+
+    .sidebar.collapsed + .content {
+      margin-left: 60px;
+      width: calc(100% - 60px);
+    }
+
+    /* Adjust link text based on sidebar state */
+    .sidebar.collapsed a {
+      font-size: 0; /* Hide text */
+    }
+
+    .sidebar.collapsed a::after {
+      content: attr(data-title); /* Show titles on hover */
+      font-size: 14px; /* Adjust font size */
+      position: absolute;
+      left: 70px; /* Position for hover text */
+      white-space: nowrap;
+      opacity: 0; /* Hide initially */
+      transition: opacity 0.3s ease;
+    }
+
+    .sidebar a:hover::after {
+      opacity: 1; /* Show on hover */
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Sidebar Navigation -->
+  <div class="sidebar" id="sidebar">
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    <img src="../graphics/pictures/Shepherd_Animal_Clinic_Logo.png" alt="Clinic Logo" class="logo">
+    <a href="#home" data-title="Home">Home</a>
+    <a href="#services" data-title="Services">Services</a>
+    <a href="#about" data-title="About">About</a>
+    <a href="#contact" data-title="Contact">Contact</a>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="content" id="content">
+    <h1>Main Content</h1>
+    <p>This is the main content area. It will expand when the sidebar is partially collapsed.</p>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('collapsed');
+    }
+  </script>
+</body>
+</html>

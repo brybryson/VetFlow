@@ -37,7 +37,7 @@
 /* Sidebar link styles */
 .sidebar-link {
     font-size: 14px; /* Regular font size when expanded */
-    font-family: 'Inter-medium', sans-serif;
+    font-family: 'Interedium', sans-serif;
     border-radius: 500px; /* Rounding the corners */
     padding: 8px 10px; /* Adjust padding for consistent spacing */
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
@@ -229,14 +229,18 @@
 /* Placeholder Styling */
 .search-input::placeholder {
     color: #A0AEC0;
-    font-style: normal;
 }
 
+/* Focused Placeholder Styling */
+.search-input:focus::placeholder {
+    color: black;
+    font-style: normal;
+}
 
 /* Search Button Styling */
 .search-button img {
     width: 1.8rem;
-    height: auto;
+    height:auto;
 }
 
 /* Filter Button Styling */
@@ -383,16 +387,25 @@
 
 
 /* RIGHT CONTAINER */
+/* Container for Customer Details */
 .customer-details {
     font-family: 'Inter Regular', sans-serif;
     font-size: 14px;
-    margin-top: 0px;
+    margin-top: 0;
+    margin-bottom: 8px;
 }
 
 /* General Invoice Label Styles */
+
+
+
 .invoice-label, .invoice-number {
     color: black;
     font-size: 16px;
+    margin-bottom: 0px;
+}
+
+.invoice-number {
     font-weight: 400;
 }
 
@@ -400,9 +413,7 @@
     font-family: 'Inter Bold', sans-serif;
 }
 
-
-
-/* Customer, Discount, Pet Name, and Contact Labels with Custom Font Sizes */
+/* Customer, Discount, Pet Name, and Contact Labels */
 .invoice-customer,
 .invoice-discount,
 .invoice-pet,
@@ -410,32 +421,48 @@
     font-size: 13px;
     color: black;
     font-weight: 400;
-    margin-right: 8px;
+    margin-right: 4px;
+    margin-bottom: 0px;
 }
 
 /* Input Field Styles */
 .input-field {
     font-size: 12px;
-    padding: 6px 8px;  /* Increased padding for better text visibility */
-    border: 1px solid black;
+    padding: 0px 8px;
+    border: 0px none black;
     border-radius: 4px;
     outline: none;
     width: 7.1rem;
-    height: 26px; /* Adjusted height to accommodate padding */
-    margin-left: 2px;
-    background-color: #ffffff; /* Light gray background color */
+    height: 4px;
+    /* background-color: #ffffff; */
+    margin-top: -15px;
+}
+
+/* Adjust layout and reduce spacing */
+.customer-details .flex {
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.mb-1 {
+    margin-bottom: 4px; /* Reduce vertical spacing between rows */
+}
+
+.space-x-2 {
+    gap: 8px 10px; /* Reduce horizontal spacing */
 }
 
 /* Specific Styles for Select Dropdown */
 select.input-field {
-    background-color: #ffffff; /* Ensure the dropdown has the same background color */
-    padding: 6px 8px; /* Consistent padding */
-    height: 26px; /* Ensure height matches other input fields */
+    background-color: #ffffff;
+    padding: 6px 8px;
+    height: 10px; /* Consistent height */
 }
 
 .contact-input {
-    margin-left: 8px; /* Adjust this value to fine-tune the alignment */
+    margin-left: 4px; /* Adjust left margin to bring it closer */
 }
+
 
 
 /* Cards for the summary of receipt */
@@ -444,6 +471,7 @@ select.input-field {
     overflow-y: auto;                  /* Enable vertical scroll if more than 3 cards */
     padding-right: 5px;                /* Optional padding for scrollbar spacing */
     overflow-x:hidden;
+    margin-top: 0;
 }
 
 .service-cards {
@@ -468,18 +496,7 @@ select.input-field {
     padding-left: 4rem;
 }
 
-/* Card Image Styles */
-.card-image {
-    position: absolute;
-    left: 10px;
-    display: flex;
-    align-items: center;
-}
 
-.card-image img {
-    width: 50px;
-    height: auto;
-}
 
 /* Type of Purchase Label */
 .type-of-purchase {
@@ -487,66 +504,32 @@ select.input-field {
     font-size: 13px;
     position: absolute;
     top: 5px;
-    left: 70px;
+    left: 15px;
     color: #000;
 }
 
 /* Service/Product ID */
 .service-product-id {
     font-family: 'Inter Regular', sans-serif;
-    font-size: 10px;
+    font-size: 9px;
     position: absolute;
-    margin-bottom: 22px;
-    left: 70px;
+    margin-bottom: 31px;
+    left: 15px;
     color: #000;
 }
 
 /* Service/Product Name */
 .service-product-name {
     font-family: 'Inter Medium', sans-serif;
-    font-size: 15px;
+    font-size: 17px;
     color: #000;
     position: absolute;
-    margin-top: 8px;
-    left: 70px;
-    width: 12rem; /* Set width to control text overflow */
+    margin-top: 0px;
+    left: 15px;
+    width: 15rem; /* Set width to control text overflow */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-/* Product Description */
-.product-description {
-    font-family: 'Inter Regular', sans-serif;
-    font-size: 11px;
-    color: #000;
-    position: absolute;
-    margin-top: 48px;
-    left: 70px;
-    width: 12rem; /* Set width to match service-product-name */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Delete Icon */
-.delete-icon {
-    position: absolute;
-    left: -59px;
-    width: 4rem;
-    height: 6rem;
-    background-color: #BC2424;
-    border-radius: 20px 0 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.delete-icon img {
-    width: 15px;
-    height: auto;
 }
 
 
@@ -559,80 +542,159 @@ select.input-field {
     margin-bottom: 20px;
 }
 
-.decrement-button, .increment-button {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%; /* Make them circular */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Inter Medium', sans-serif;
-    font-size: 14px;
-    color: white;
-    cursor: pointer;
-    margin: 0 10px; /* Spacing between buttons */
-}
-
-.decrement-button {
-    background-color: #eb3223; /* Red for decrement */
-}
-
-.increment-button {
-    background-color: #5E8B3B; /* Green for increment */
-}
 
 .item-count {
     font-family: 'Inter Medium', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     color: #000;
-    width: 20px; /* Fixed width to align nicely */
+    width: 40px; /* Increased width to fit "Qty. 1" */
     text-align: center; /* Center the text */
+    white-space: nowrap; /* Prevent wrapping */
 }
+
 
 .price {
     position: absolute;
     bottom: 10px; /* Adjust as necessary */
-    right: 10px; /* Adjust as necessary */
+    left: 15px; /* Adjust as necessary */
     font-family: 'Inter Medium', sans-serif;
     font-size: 15px;
     font-weight: 200;
     color: #3C8800; /* Set color to #3C8800 */
 }
 
+/* Total Price Display */
+.total-price {
+    position: absolute;
+    bottom: 10px;
+    right: 10px; /* Positioned on the right side */
+    font-family: 'Inter Medium', sans-serif;
+    font-size: 15px;
+    font-weight: 200;
+    color: #3C8800; /* Same color as .price */
+}
 
+
+/*                                         */
 /* CASHIER DETAILS ON THE RIGHT CONTAINER */
+/*                                         */
 .cashier-details {
-    margin-top: 10px; /* Set the distance from the service cards container */
+    margin-top: 10px; /* Space from the service cards container */
+}
+
+.cashier-label, .cashier-name, .employee-id {
+    font-family: 'Inter Medium', sans-serif;
+    color: black;
 }
 
 .cashier-label {
-    font-family: 'Inter Medium', sans-serif; 
-    font-size: 11px; 
-    color: black;
+    font-size: 11px;
 }
 
 .cashier-name {
-    font-family: 'Inter Medium', sans-serif; 
-    font-size: 11px; 
-    color: black;
+    font-size: 11px;
 }
 
 .employee-id {
-    font-family: 'Inter Medium', sans-serif; /* Font style */
-    font-size: 14px; 
-    color: black; 
-    margin-top:-5px; 
+    font-size: 14px;
+    margin-top: -5px;
+}
+
+.subtotal-total-receipt-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-top:4px;
+    gap: 14.5rem;
+}
+
+.subtotal-label, .subtotal-amount, .total-label, .total-amount {
+    font-family: 'Inter Bold', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    white-space: nowrap;
+}
+
+.subtotal-summary {
+    margin-top: 1px; /* Space between Subtotal and Additional Summary */
+    display: flex;
+    flex-direction: column;
+    gap: 1px; 
+    right: 20px;
+}
+
+.vat, .discount,
+.amount-tendered, .change {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10rem;
+    font-family: 'Inter Regular', sans-serif;
+    font-size: 10px;
+    color: black;
+}
+
+.vat-label, .vat-amount, .discount-label, .discount-amount,
+.tendered-label, .change-label {
+    font-family: 'Inter Regular', sans-serif;
+    font-size: 12px;
+}
+
+.change-amount {
+    font-family: 'Inter Regular', sans-serif;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.total-summary {
+    margin-top: 1px; /* Space between Subtotal and Additional Summary */
+    display: flex;
+    flex-direction: column;
+    gap: 1px; 
+    right: 20px;
+}
+
+.tendered-amount {
+    font-family: 'Inter Regular', sans-serif;
+    font-size: 12px;
+}
+
+/*  */
+/*  */
+.partition-line {
+    border-top: 1px dashed black;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 100%; /* Full width partition line */
+}
+
+.input-field-tendered {
+    font-size: 12px;
+    padding: 6px 8px;  /* Increased padding for better text visibility */
+    border: 1px solid black;
+    border-radius: 4px;
+    outline: none;
+    text-align: end;
+    width: 4rem; /* Adjust width as necessary */
+    height: 26px; /* Adjust height to accommodate padding */
+    margin-left: 2px; /* Adjust space between label and input */
+    background-color: #ffffff; 
 }
 
 
+
+/*                                       */
 /* NEXT AND CLEAR BUTTON RIGHT CONTAINER */
+/*                                       */
+
 .buttons {
     margin-top: 22px; /* Adjust spacing if necessary */
     display: flex;
     justify-content: space-between; /* Space between buttons */
+
 }
 
-.clear-button {
+.cancel-button {
     background-color: #BC2424; /* Background color */
     color: white; /* Text color */
     width: 8.5rem; /* Button width */
@@ -641,11 +703,11 @@ select.input-field {
     box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.2); /* Box shadow */
     border: none; /* Remove default border */
     cursor: pointer; /* Pointer on hover */
-    font-family: 'Inter Medium', sans-serif; /* Font style */
+    font-family: 'Inter Medium', sans-serif; 
 }
 
-.next-button {
-    background-color: #004F88; /* Background color */
+.pay-button {
+    background-color: #3C8800; /* Background color */
     color: white; /* Text color */
     width: 15rem; /* Button width */
     height: 40px; /* Button height */
@@ -656,116 +718,273 @@ select.input-field {
     font-family: 'Inter Medium', sans-serif; /* Font style */
 }
 
+/*                */
+/*   modal part   */
+/*                */
 
-
-/* NOTIFICATION FOR LOW STOCKS */
-/* Notification Modal Styling */
-.notification-modal {
-    position: absolute;
-    top: 455px;
-    right: 10px;
-    width: 17rem;
-    height: 7rem;
-    background-color: #FBB2B2;
-    padding: 10px 15px 20px 15px;
-    border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    transform: translateX(100%); /* Start off-screen to the right */
-    opacity: 0; 
-    transition: transform 0.4s ease, opacity 0.4s ease; 
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with 80% opacity */
+    display: flex; /* Use flexbox to center the modal */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
-/* Show the modal with a slide-in animation */
-.notification-modal.show {
-    transform: translateX(0); /* Slide in */
-    opacity: 1; /* Fade in */
+.modal-content {
+    background-color: white;
+    height: 30rem; /* Strict height */
+    width: 19rem; /* Strict width */
+    padding: 25px 25px 20px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: flex-start; /* Align items to the top */
+    overflow: hidden; /* Hide overflow */
 }
 
-.notification-modal.slide-out {
-    transform: translateX(100%); /* Slide out to the right */
-    opacity: 0; /* Fade out */
-}
-
-/* Modal Header Styling */
 .modal-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    width: 100%;
-    margin-bottom: 30px;
+    font-family: 'Sometype Mono Regular', sans-serif;
+    color: #343434; /* Text color */
+    text-align: center; /* Center text */
+    line-height: 1; /* Tighten line spacing */
+    margin-bottom: 10px; /* Space below the header */
 }
 
-/* Header Left Side (Icon + Description) */
-.header-left {
-    display: flex;
-    align-items: center;
-    margin-left: 3px;
-}
-
-/* Warning Icon Styling */
-.warning-icon {
-    width: 29px;
-    height: 29px;
-    margin-right:8px;
-}
-
-/* Alert Description Text Styling */
-.alert-description {
-    font-family: 'Inter Medium', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: #981C1C;
-    margin: 0;
-}
-
-/* Close Button Styling */
-.close-btn {
-    position: absolute;
-    right: 4px;
-    top: 4px;
-    cursor: pointer;
-}
-
-.close-icon {
-    width: 15apx;
-    height: 15px;
-}
-
-/* Modal Message Styling */
-.modal-message {
-    font-family: 'Inter Regular', sans-serif;
-    font-size: 10px;
-    color: black;
-    text-align: left;
-    line-height: 1.1;
-    margin-top: -25px;
-    padding-left: 3px;
-}
-
-.modal-message p {
-    margin: 0;
-}
-
-/* Low Stock Number Styling */
-.low-stock-number {
-    font-weight: normal;
-}
-
-/* Products Low Stock Container Styling */
-.products-low-stock {
-    font-family: 'Inter Medium', sans-serif;
+.modal-title {
     font-size: 11px;
-    color: black;
+    font-weight: 500;
+    margin-bottom: 2px;
+    font-family: 'Sometype Mono Medium', sans-serif;
+}
+
+.modal-address,
+.modal-contact,
+.modal-email {
+  font-size: 6.5px;
+  line-height: 1.25; 
+  margin: 0;
+  padding: 0px 30px 0 30px;
+  font-weight: 400;
+}
+
+
+
+.modal-contact {
+  font-size: 7px;
+  line-height: 1.0; 
+  margin: 1px;
+  padding: 0px 30px 0 30px;
+
+}
+
+/*                        */
+/*  receipt information   */
+/*                        */
+.receipt-information {
+    font-family: 'Sometype Mono Regular', sans-serif;
+    color: #343434;
+    line-height: 1.5; 
+    margin-top: 5px;
+    margin-bottom: 10px;
+
+}
+
+.receipt-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0px 0; /* Vertical spacing between rows */
+}
+
+.invoice-label-modal, .invoice-number-modal {
+    font-family: 'Sometype Mono Bold', sans-serif;
+    font-size: 8px;
+}
+
+.date-time-label-modal, .date-time-modal, .user-label-modal, .user-name-modal {
+    font-size: 7px;
+    font-family: 'Sometype Mono Regular', sans-serif;
+}
+
+.invoice-label-modal, .date-time-label-modal, .user-label-modal {
+    margin-right: 5px; /* Spacing between label and value */
+}
+
+
+/*                     */
+/*  summary receipt   */
+/*                    */
+
+.receipt-summary-modal {
+    font-family: 'Sometype Mono Regular', sans-serif;
+    color: #343434;
+    font-size: 8px;
     text-align: left;
-    line-height: 1.1;
-    padding-left: 3px;
     margin-top: 10px;
 }
 
-.products-low-stock p {
-    margin: 5; /* Tight line spacing */
-    display: block;
+.partition-modal {
+    border-top: 1px dashed #343434;
+    width: calc(100% + 45px); /* Extend past the padding on each side */
+    margin: 1px -20px;
 }
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.quantity-label-modal {
+    width: 15%; /* Adjust width for specific spacing */
+    text-align: left;
+}
+
+.description-label-modal {
+    width: 50%; /* Adjust width for specific spacing */
+    text-align: left;
+}
+
+.price-label-modal {
+    width: 40%; /* Adjust width for specific spacing */
+    text-align: center;
+}
+
+.amount-label-modal {
+    width: 10%; /* Adjust width for specific spacing */
+    text-align: right;
+}
+
+
+
+.item-service {
+    margin-top: 7px; /* Maintain spacing from the last partition */
+    margin-bottom: 7px;
+}
+
+.item-summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.quantity-amount-modal,
+.description-amount-modal,
+.price-amount-modal,
+.amount-modal {
+    font-family: 'Sometype Mono Regular', sans-serif; /* Same font */
+    color: #343434; /* Same color */
+    font-size: 8px; /* Same font size */
+    line-height: 1;
+}
+
+/* Ensure widths match previous summary-row */
+.quantity-amount-modal {
+    width: 15%; /* Adjust width for specific spacing */
+    margin-left: 3px;
+}
+
+.description-amount-modal {
+    width: 60%; /* Adjust width for specific spacing */
+}
+
+.price-amount-modal {
+    width: 40%; /* Adjust width for specific spacing */
+    text-align: center; /* Center align for price */
+}
+
+.amount-modal {
+    width: 10%; /* Adjust width for specific spacing */
+    text-align: right; /* Right align for amount */
+}
+
+
+
+.transaction-summary {
+    font-family: 'Sometype Mono Regular', sans-serif;
+    color: #343434;
+    font-size: 8px;
+    margin-top: 15px; /* Margin above the transaction summary */
+    margin-bottom: 15px;
+}
+
+.transaction-row {
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.2;
+}
+
+.subtotal-label-modal,
+.discount-label-modal,
+.vat-label-modal,
+.cash-paid-label-modal,
+.change-label-modal, 
+.paid-amount-label-modal {
+    width: 60%; /* Adjust width for label */
+    text-align: left; /* Align labels to the left */
+}
+
+.subtotal-amount-modal,
+.discount-amount-modal,
+.vat-amount-modal,
+.cash-paid-amount-modal,
+.change-amount-modal,
+.paid-amount-modal {
+    width: 40%; /* Adjust width for amount */
+    text-align: right; /* Align amounts to the right */
+}
+
+.total-label-modal {
+    width: 60%; /* Adjust width for label */
+    text-align: left; /* Align labels to the left */
+    font-family: 'Sometype Mono Bold', sans-serif; /* Bold font */
+    font-size: 10px; /* Font size for the total label */
+    margin-top: 6px; /* Top margin */
+    margin-bottom: 6px; /* Bottom margin */
+}
+
+.total-amount-modal {
+    width: 40%; /* Adjust width for amount */
+    text-align: right; /* Align amounts to the right */
+    font-family: 'Sometype Mono Bold', sans-serif; /* Bold font */
+    font-size: 10px; /* Font size for the total amount */
+    margin-top: 6px; /* Top margin */
+    margin-bottom: 6px; /* Bottom margin */
+}
+
+
+
+.footer-receipt-modal {
+    text-align: center; /* Center all content */
+    margin-top: 18px; /* Space above the footer */
+}
+
+.footer-text-main {
+    font-family: 'Sometype Mono Medium', sans-serif;
+    font-size: 10px;
+    color: #343434;
+    margin-bottom: 1px; /* Space below the main text */
+}
+
+.footer-text-sub {
+    font-family: 'Sometype Mono Regular', sans-serif;
+    font-size: 8px;
+    color: #343434;
+    margin-bottom: 10px; /* Space below the sub text */
+}
+
+.footer-barcode {
+    width: 85%; /* Set width to 80% */
+    height: 60%; /* Set height */
+    display: block; /* Ensures the image is treated as a block element */
+    margin: 0 auto; /* Centers the image */
+}
+
