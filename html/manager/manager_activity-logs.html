@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shepherd Animal Clinic - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/manager/manager_activity-logs.css"> 
+    <link rel="stylesheet" href="/graphics/fonts/fonts.css">
+    <link rel="stylesheet" href="/graphics/color/colors.css">
+    <link rel="stylesheet" href="/dist/output.css">
+</head>
+<body class="flex" style="background-color: #F9FAFB;">
+
+    <!-- Sidebar Navigation -->
+    <div id="sidebar" class="sidebar text-black h-screen p-4 flex flex-col justify-between w-64 bg-white">
+        <!-- Top section for button and logo -->
+        <div>
+            <div class="flex justify-end mb-4 relative">
+                <button class="toggle-btn bg-olive-green text-white w-8 h-8 rounded hover:bg-green-700" onclick="toggleSidebar()">☰</button>
+            </div>
+            <div class="flex justify-center">
+                <img src="/graphics/pictures/Shepherd_Animal_Clinic_Logo.png" alt="Clinic Logo" class="logo transition-all duration-300">
+            </div>
+            <div class="nav-links mt-5">
+                <a href="/html/manager/manager_landing-page.html" data-title="Dashboard" class="sidebar-link custom-hover text-black block  text-center ">Dashboard</a>
+                <a href="/html/manager/manager_user-management.html" data-title="User_Management" class="sidebar-link custom-hover text-black block  text-center ">User Management</a>
+                <a href="#/html/manager_data_management.html" data-title="Data_Management" class="sidebar-link custom-hover text-black block text-center ">Data Management</a>
+                <a href="#/html/manager_reports.html" data-title="Reports" class="sidebar-link custom-hover text-black block text-center ">Reports</a>
+                <a href="#/html/manager_item-stocks.html" data-title="Item_Stocks" class="sidebar-link custom-hover text-black block  text-center ">Item Stocks</a>
+                <a href="#/html/manager_vendors.html" data-title="Vendor" class="sidebar-link custom-hover text-black block  text-center ">Vendor</a>
+                <a href="#/html/manager-sales-history.html" data-title="Sales_History" class="sidebar-link custom-hover text-black block text-center">Sales History</a>
+            </div>
+            
+        </div>
+
+        <div class="logout-button-container flex flex-col justify-center items-center mt-auto">
+            <span class="employee-status-info flex items-center text-center mt-3 mb-3 border-medium-dark-green relative">
+                <span class="user-initials flex items-center justify-center bg-pastel-green rounded-full text-black w-6 h-6 mr-2 relative">
+                    TM
+                    <span class="active-indicator absolute"></span>
+                </span>
+                <span class="employee-name">Trish Mercado</span>
+            </span>
+            <a href="/html/login-tailwind.html" class="sidebar-link logout custom-hover flex items-center justify-center text-medium-dark-green block py-2 px-4 text-center">
+                <img src="/graphics/icons/Logout.png" alt="Logout Icon" class="w-5 h-5 mr-2">
+                Logout
+            </a>
+        </div>
+    </div>
+
+ 
+         <div id="mainContent" class="content flex-1 p-8 bg-gray-50 transition-all duration-300">
+
+            <!--            -->
+            <!-- Title Area -->
+             <!--            -->
+             <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center">
+                    <div class="title-date-container">
+                        <h1 class="module-title">Activity Logs</h1>
+                        <!-- <p class="module-subtitle">Manage your team members and their account here</p> -->
+                        <!-- <span class="date-time" id="dateTime"></span> -->
+                    </div>
+                </div>
+            </div>
+    
+    
+            <!--                                                              -->
+           <!-- Search Bar Container, View Archived Text, and Add User Button -->
+           <!--                                                              -->
+    
+        <div class="flex items-center justify-between mt-1 mb-4">
+            <!-- Left-aligned back button -->
+            <button class="back-button" onclick="history.back()">
+                <img src="/graphics/icons/back-button.png" alt="Back Button" class="back-button-icon">
+            </button>
+    
+        </div>
+    
+            <!-- create a container name archive-activity-container -->
+            <div class="archive-activity-container">
+                <div class="outer-archiveee-container">
+                <div class="time-deleted-section">
+                    <h2 class="time-deleted-label">Recent Deleted</h2>
+            
+                    <div class="archive-activity">
+                        <img src="/graphics/pictures/trish-mercado.png" alt="Profile Image" class="profile-image-activity">
+            
+                        <div class="activity-details">
+                            <span class="activity-username">You</span>
+                            <span class="activity-description">Edited Eden Santillan from User Management</span>
+                            <span class="activity-time">23 mins ago</span>
+                        </div>
+            
+                        <span class="activity-date">Sep 2, 2024</span>
+            
+                        <div class="activity-actions">
+                            <button class="delete-btn">
+                                <img src="/graphics/icons/trash.png" alt="Trash Icon" class="button-icon">
+                                Delete
+                            </button>
+                            <button class="restore-btn">
+                                <img src="/graphics/icons/restore-icon.png" alt="Restore Icon" class="button-icon">
+                                Restore
+                            </button>
+                        </div>
+                    </div>
+            
+                    <div class="archive-activity">
+                        <img src="/graphics/pictures/trish-mercado.png" alt="Profile Image" class="profile-image-activity">
+            
+                        <div class="activity-details">
+                            <span class="activity-username">You</span>
+                            <span class="activity-description">Added Mirabel Agoncillo</span>
+                            <span class="activity-time">3 hours ago</span>
+                        </div>
+            
+                        <span class="activity-date">Sep 2, 2024</span>
+            
+                        <div class="activity-actions">
+                            <button class="delete-btn">
+                                <img src="/graphics/icons/trash.png" alt="Trash Icon" class="button-icon">
+                                Delete
+                            </button>
+                            <button class="restore-btn">
+                                <img src="/graphics/icons/restore-icon.png" alt="Restore Icon" class="button-icon">
+                                Restore
+                            </button>
+                        </div>
+                    </div>
+    
+                    <div class="archive-activity">
+                        <img src="/graphics/pictures/trish-mercado.png" alt="Profile Image" class="profile-image-activity">
+            
+                        <div class="activity-details">
+                            <span class="activity-username">You</span>
+                            <span class="activity-description">Removed Mc Shane Yap</span>
+                            <span class="activity-time">5 days ago</span>
+                        </div>
+            
+                        <span class="activity-date">Aug 28, 2024</span>
+            
+                        <div class="activity-actions">
+                            <button class="delete-btn">
+                                <img src="/graphics/icons/trash.png" alt="Trash Icon" class="button-icon">
+                                Delete
+                            </button>
+                            <button class="restore-btn">
+                                <img src="/graphics/icons/restore-icon.png" alt="Restore Icon" class="button-icon">
+                                Restore
+                            </button>
+                        </div>
+                    </div>
+    
+    
+                    <div class="archive-activity">
+                        <img src="/graphics/pictures/trish-mercado.png" alt="Profile Image" class="profile-image-activity">
+            
+                        <div class="activity-details">
+                            <span class="activity-username">You</span>
+                            <span class="activity-description">Removed User 2 from User Management</span>
+                            <span class="activity-time">3 hours ago</span>
+                        </div>
+            
+                        <span class="activity-date">Sep 2, 2024</span>
+            
+                        <div class="activity-actions">
+                            <button class="delete-btn">
+                                <img src="/graphics/icons/trash.png" alt="Trash Icon" class="button-icon">
+                                Delete
+                            </button>
+                            <button class="restore-btn">
+                                <img src="/graphics/icons/restore-icon.png" alt="Restore Icon" class="button-icon">
+                                Restore
+                            </button>
+                        </div>
+                    </div>
+    
+                </div>
+                   
+                    
+                    <h2 class="time-deleted-label">Last 3 Months</h2>
+            
+                    <div class="archive-activity">
+                        <img src="/graphics/pictures/trish-mercado.png" alt="Profile Image" class="profile-image-activity">
+            
+                        <div class="activity-details">
+                            <span class="activity-username">You</span>
+                            <span class="activity-description">Edited Hans Lecoso from User Management</span>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+            
+                        <span class="activity-date">Sep 2, 2024</span>
+            
+                        <div class="activity-actions">
+                            <button class="delete-btn">
+                                <img src="/graphics/icons/trash.png" alt="Trash Icon" class="button-icon">
+                                Delete
+                            </button>
+                            <button class="restore-btn">
+                                <img src="/graphics/icons/restore-icon.png" alt="Restore Icon" class="button-icon">
+                                Restore
+                            </button>
+                        </div>
+                    </div>
+    
+                    <div class="archive-activity">
+                        <img src="/graphics/pictures/trish-mercado.png" alt="Profile Image" class="profile-image-activity">
+            
+                        <div class="activity-details">
+                            <span class="activity-username">You</span>
+                            <span class="activity-description">Removed User 2 from User Management</span>
+                            <span class="activity-time">3 hours ago</span>
+                        </div>
+            
+                        <span class="activity-date">Sep 2, 2024</span>
+            
+                        <div class="activity-actions">
+                            <button class="delete-btn">
+                                <img src="/graphics/icons/trash.png" alt="Trash Icon" class="button-icon">
+                                Delete
+                            </button>
+                            <button class="restore-btn">
+                                <img src="/graphics/icons/restore-icon.png" alt="Restore Icon" class="button-icon">
+                                Restore
+                            </button>
+                        </div>
+                    </div>
+    
+    
+                    
+    
+    
+    
+    
+    
+    
+                </div>
+            </div>
+            
+            
+            
+            
+            
+        
+    
+    
+    
+        </div>
+    
+    
+    
+    
+    
+            </div>
+        </div>
+
+   
+
+    <!-- JavaScript links -->
+    <script src="/js/manager/manager_activity-logs.js"></script> 
+    
+</body>
+</html>

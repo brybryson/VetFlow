@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shepherd Animal Clinic - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admin/admin_landing-page.css"> 
+    <link rel="stylesheet" href="/graphics/fonts/fonts.css">
+    <link rel="stylesheet" href="/graphics/color/colors.css">
+    <link rel="stylesheet" href="/dist/output.css">
+</head>
+<body class="flex" style="background-color: #F9FAFB;">
+
+    <!-- Sidebar Navigation -->
+    <div id="sidebar" class="sidebar text-black h-screen p-4 flex flex-col justify-between w-64 bg-white">
+        <!-- Top section for button and logo -->
+        <div>
+            <div class="flex justify-end mb-4 relative">
+                <button class="toggle-btn bg-olive-green text-white w-8 h-8 rounded hover:bg-green-700" onclick="toggleSidebar()">☰</button>
+            </div>
+            <div class="flex justify-center mb-4">
+                <img src="/graphics/pictures/Shepherd_Animal_Clinic_Logo.png" alt="Clinic Logo" class="logo transition-all duration-300">
+            </div>
+            <div class="nav-links mt-10">
+                <p class="sidebar-link custom-hover text-black block py-2 px-4 text-center mb-2" data-title="hello_admin">Hello, Admin!</p>
+            </div>
+            
+        </div>
+
+        <div class="logout-button-container flex flex-col justify-center items-center mt-auto">
+            <span class="employee-status-info flex items-center text-center mt-3 mb-3 border-medium-dark-green relative">
+                <span class="user-initials flex items-center justify-center bg-pastel-green rounded-full text-black w-6 h-6 mr-2 relative">
+                    TM
+                    <span class="active-indicator absolute"></span>
+                </span>
+                <span class="employee-name">Trish Mercado</span>
+            </span>
+            <a href="/html/login-tailwind.html" class="sidebar-link logout custom-hover flex items-center justify-center text-medium-dark-green block py-2 px-4 text-center">
+                <img src="/graphics/icons/Logout.png" alt="Logout Icon" class="w-5 h-5 mr-2">
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="mainContent" class="content flex-1 p-8 bg-gray-50 transition-all duration-300">
+
+        <!--            -->
+        <!-- Title Area -->
+         <!--            -->
+         <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+                <div class="title-date-container">
+                    <h1 class="module-title">User Management</h1>
+                    <p class="module-subtitle">Manage your team members and their account here</p>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="/html/admin/admin_activity-logs.html" class="action-button">
+                    <img src="/graphics/icons/activity_logs.png" alt="Activity Logs Icon" class="button-icon">
+                    Activity Logs
+                    <div class="notif-badge" id="notif-activity-logs">4</div>
+                </a>
+                <a href="/html/admin/admin_archive-page.html" class="action-button">
+                    <img src="/graphics/icons/admin_archive_icon.png" alt="Archive Icon" class="button-icon">
+                    Archive
+                    <div class="notif-badge" id="notif-archive">2</div>
+                </a>
+            </div>            
+        </div>
+        
+
+
+
+       <!--                                                              -->
+       <!-- Search Bar Container, View Archived Text, and Add User Button -->
+       <!--                                                              -->
+
+       <div class="flex items-center justify-between mt-1">
+        <!-- Left-aligned elements: Search bar and View Archived Here -->
+        <div class="flex items-center">
+            <div class="search-bar flex items-center">
+                <input type="text" placeholder="Search name or code" class="search-input" />
+                <button class="search-button ml-2">
+                    <img src="/graphics/icons/search-button.png" alt="Search Button" class="w-7 h-7">
+                </button>
+
+                <button class="filter-button ml-2">
+                    <img src="/graphics/icons/filter.png" alt="Filter Icon" class="w-7 h-7">
+                </button>
+            </div>
+            
+            <!-- View Archived Text to the right of the search bar -->
+            <!-- <a href="/html/admin_archive-page.html" class="view-archived-link">
+                <p class="view-archived-text ml-2">View Archived Here</p>
+            </a> -->
+            
+        </div>
+
+        <!-- Right-aligned Add User button -->
+        <div>
+            <a href="/html/admin/admin_add-user.html" class="add-user-button flex items-center">
+                Add User
+                <img src="/graphics/icons/add-icon.png" alt="Add Icon" class="ml-1 add-icon">
+            </a>
+        </div>
+        
+    </div>
+
+        <!-- Content Header and Search Bar -->
+
+        <!-- User Information Container Table -->
+        <div class="user-information-container mt-4">
+            <p class="user-label">All users <span class="user-number">4</span></p>
+            <div class="user-labels-row grid">
+                <input type="checkbox" id="selectAllCheckbox" class="user-checkbox" />
+                <span class="label user-name-label">User Name
+                    <button class="archive-user-button ml-1">
+                        <img src="/graphics/icons/move-to-archive-labels.png" alt="Archive User" class="archive-icon">
+                    </button>
+                </span>
+                <span class="label role-label">Role</span>
+                <span class="label last-active-label">Last Active
+                    <button class="last-active-arrow-button ml-2">
+                        <img src="/graphics/icons/archive-down-button.png" alt="Arrow Down" class="arrow-icon">
+                    </button>
+                </span>
+                <span class="label date-added-label">Date Added</span>
+                <span class="label empty-label"></span>
+            </div>
+
+            <!-- User Row -->
+            <div class="user-row grid relative">
+                <input type="checkbox" class="user-checkbox" />
+                <div class="user-name-container">
+                    <img src="/graphics/pictures/trish-mercado.png" alt="Trish Mercado" class="user-photo">
+                    <div class="user-info">
+                        <p class="user-full-name">Trish Mercado</p>
+                        <p class="user-code">T01-ADM1009</p>
+                    </div>
+                </div>
+                <div class="role-container">
+                    <span class="role-admin">Admin</span>
+                    <span class="role-manager">Manager</span>
+                </div>
+                <span class="last-active-date">Sept 26, 2024</span>
+                <span class="date-added">Jan 30, 2021</span>
+            
+                <!-- Ellipsis Button with Options Menu -->
+                <button class="options-button" onclick="toggleOptionsMenu(event)">
+                    <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon">
+                </button>
+                <!-- Options Menu -->
+                <div class="options-menu hidden absolute bg-white border border-gray-300 shadow-lg mt-2 p-2 w-32">
+                    <ul>
+                        <li class="view-profile p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/admin_edit-user-Trish.html" class="flex items-center">
+                                <img src="/graphics/icons/view-profile.png" alt="View Profile Icon" class="menu-icon"> View Profile
+                            </a>
+                        </li>
+                        <li class="edit-details p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/admin_edit-user-Trish.html" class="flex items-center">
+                                <img src="/graphics/icons/edit-details.png" alt="Edit Details Icon" class="menu-icon"> Edit Details
+                            </a>
+                        </li>
+                        <li class="move-to-archive p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="#/html/archive.html" class="flex items-center">
+                                <img src="/graphics/icons/move-to-archive-3.png" alt="Archive Icon" class="menu-icon"> Archive
+                            </a>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+            
+
+             <!-- User Row -->
+             <div class="user-row grid relative">
+                <input type="checkbox" class="user-checkbox" />
+                <div class="user-name-container">
+                    <img src="/graphics/pictures/eden-santillan.png" alt="Trish Mercado" class="user-photo">
+                    <div class="user-info">
+                        <p class="user-full-name">Eden Santillan</p>
+                        <p class="user-code">T02-CAS2149</p>
+                    </div>
+                </div>
+                <div class="role-container">
+                    <span class="role-cashier">Cashier</span>
+                </div>
+                <span class="last-active-date">Sept 27, 2024</span>
+                <span class="date-added">Feb 21, 2021</span>
+
+                <!-- Ellipsis Button with Options Menu -->
+                <button class="options-button" onclick="toggleOptionsMenu(event)">
+                    <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon">
+                </button>
+                <!-- Options Menu -->
+                <div class="options-menu hidden absolute bg-white border border-gray-300 shadow-lg mt-2 p-2 w-32">
+                    <ul>
+                        <li class="view-profile p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/" class="flex items-center">
+                                <img src="/graphics/icons/view-profile.png" alt="View Profile Icon" class="menu-icon"> View Profile
+                            </a>
+                        </li>
+                        <li class="edit-details p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/admin_edit-user-Eden.html" class="flex items-center">
+                                <img src="/graphics/icons/edit-details.png" alt="Edit Details Icon" class="menu-icon"> Edit Details
+                            </a>
+                        </li>
+                        <li class="move-to-archive p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/archive.html" class="flex items-center">
+                                <img src="/graphics/icons/move-to-archive-3.png" alt="Archive Icon" class="menu-icon"> Archive
+                            </a>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+
+            <!-- User Row -->
+            <div class="user-row grid relative">
+                <input type="checkbox" class="user-checkbox" />
+                <div class="user-name-container">
+                    <img src="/graphics/pictures/matthew-boronggo.png" alt="Trish Mercado" class="user-photo">
+                    <div class="user-info">
+                        <p class="user-full-name">Matthew Boronggo</p>
+                        <p class="user-code">T03-STC45319</p>
+                    </div>
+                </div>
+                <div class="role-container">
+                    <span class="role-stock-controller">Stock Controller</span>
+                </div>
+                <span class="last-active-date">Sept 26, 2024</span>
+                <span class="date-added">Nov 14, 2021</span>
+
+                <!-- Ellipsis Button with Options Menu -->
+                <button class="options-button" onclick="toggleOptionsMenu(event)">
+                    <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon">
+                </button>
+                <!-- Options Menu -->
+                <div class="options-menu hidden absolute bg-white border border-gray-300 shadow-lg mt-2 p-2 w-32">
+                    <ul>
+                        <li class="view-profile p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/admin_edit-user-Matthew.html" class="flex items-center">
+                                <img src="/graphics/icons/view-profile.png" alt="View Profile Icon" class="menu-icon"> View Profile
+                            </a>
+                        </li>
+                        <li class="edit-details p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin_edit-user-Matthew.html" class="flex items-center">
+                                <img src="/graphics/icons/edit-details.png" alt="Edit Details Icon" class="menu-icon"> Edit Details
+                            </a>
+                        </li>
+                        <li class="move-to-archive p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/archive.html" class="flex items-center">
+                                <img src="/graphics/icons/move-to-archive-3.png" alt="Archive Icon" class="menu-icon"> Archive
+                            </a>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+
+            <!-- User Row -->
+            <div class="user-row grid relative">
+                <input type="checkbox" class="user-checkbox" />
+                <div class="user-name-container">
+                    <img src="/graphics/pictures/hans-lecoso.png" alt="Trish Mercado" class="user-photo">
+                    <div class="user-info">
+                        <p class="user-full-name">Hans Lecoso</p>
+                        <p class="user-code">T04-STC45468</p>
+                    </div>
+                </div>
+                <div class="role-container">
+                    <span class="role-stock-controller">Stock Controller</span>
+                </div>
+                <span class="last-active-date">Sept 27, 2024</span>
+                <span class="date-added">Nov 27, 2021</span>
+
+                <!-- Ellipsis Button with Options Menu -->
+                <button class="options-button" onclick="toggleOptionsMenu(event)">
+                    <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon">
+                </button>
+                <!-- Options Menu -->
+                <div class="options-menu hidden absolute bg-white border border-gray-300 shadow-lg mt-2 p-2 w-32">
+                    <ul>
+                        <li class="view-profile p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/admin_edit-user-Hans.html" class="flex items-center">
+                                <img src="/graphics/icons/view-profile.png" alt="View Profile Icon" class="menu-icon"> View Profile
+                            </a>
+                        </li>
+                        <li class="edit-details p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/admin_edit-user-Hans.html" class="flex items-center">
+                                <img src="/graphics/icons/edit-details.png" alt="Edit Details Icon" class="menu-icon"> Edit Details
+                            </a>
+                        </li>
+                        <li class="move-to-archive p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/archive.html" class="flex items-center">
+                                <img src="/graphics/icons/move-to-archive-3.png" alt="Archive Icon" class="menu-icon"> Archive
+                            </a>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+
+            <div id="noResultsMessage" class="text-center text-gray-500 mt-4 hidden" style="font-family:'Inter Medium', sans-serif;">
+                No users found matching your search.
+            </div>
+
+        </div>
+    </div>
+
+   
+
+    <!-- JavaScript links -->
+    <script src="/js/admin/admin_landing-page.js"></script> 
+</body>
+</html>

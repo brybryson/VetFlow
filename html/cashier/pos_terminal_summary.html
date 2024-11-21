@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shepherd Animal Clinic - POS Terminal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/cashier/pos_terminal_summary.css"> 
+    <link rel="stylesheet" href="/graphics/fonts/fonts.css">
+    <link rel="stylesheet" href="/graphics/color/colors.css">
+    <link rel="stylesheet" href="/dist/output.css">
+    
+</head>
+<body class="flex">
+
+    <!-- Sidebar Navigation -->
+    <div id="sidebar" class="sidebar text-black h-screen p-4 flex flex-col justify-between w-64 bg-white">
+        <!-- Top section for button and logo -->
+        <div>
+            <div class="flex justify-end mb-4 relative">
+                <button class="toggle-btn bg-olive-green text-white w-8 h-8 rounded hover:bg-green-700" onclick="toggleSidebar()">☰</button>
+            </div>
+            <div class="flex justify-center">
+                <img src="/graphics/pictures/Shepherd_Animal_Clinic_Logo.png" alt="Clinic Logo" class="logo transition-all duration-300">
+            </div>
+            <div class="nav-links mt-5">
+                <a href="/html/cashier/pos_terminal-services.html" data-title="POS_Terminal" class="sidebar-link custom-hover text-black block  text-center ">POS Terminal</a>
+                <a href="/html/cashier/view_sales_transaction.html" data-title="Reports" class="sidebar-link custom-hover text-black block  text-center ">Reports</a>
+            </div>
+            
+        </div>
+
+        <div class="logout-button-container flex flex-col justify-center items-center mt-auto">
+            <span class="employee-status-info flex items-center text-center mt-3 mb-3 border-medium-dark-green relative">
+                <span class="user-initials flex items-center justify-center bg-pastel-green rounded-full text-black w-6 h-6 mr-2 relative">
+                    ES
+                    <span class="active-indicator absolute"></span>
+                </span>
+                <span class="employee-name">Eden Santillan</span>
+            </span>
+            <a href="/html/login-tailwind.html" class="sidebar-link logout custom-hover flex items-center justify-center text-medium-dark-green block py-2 px-4 text-center">
+                <img src="/graphics/icons/Logout.png" alt="Logout Icon" class="w-5 h-5 mr-2">
+                Logout
+            </a>
+        </div>
+    </div>
+
+   <!-- Main Content Area -->
+    <div class="content flex-1 p-8 bg-gray-50 transition-all duration-300">
+        <h1 class="module-title">POS Terminal<span class="date-time" id="dateTime"></span></h1>
+
+        <!-- Search bar container with filter button beside it -->
+        <div class="flex items-center mt-1">
+            <div class="search-bar flex items-center">
+                <input type="text" placeholder="Search name or code" class="search-input" />
+                <button class="search-button ml-2">
+                    <img src="/graphics/icons/search-button.png" alt="Search Button" class="w-7 h-7">
+                </button>
+
+                <button class="filter-button ml-2">
+                    <img src="/graphics/icons/filter.png" alt="Filter Icon" class="w-7 h-7">
+                </button>
+            </div>
+        
+        </div>
+
+
+    <!-- Action Buttons for Products, Services, and View Sales History -->
+    <div class="action-buttons mt-4 flex">
+        <a href="/html/cashier/pos_terminal-services.html">
+            <button class="action-button services" style="width: 120px; height: 35px; background-color: #B4EA89;">Services</button>
+        </a>
+        <a href="/html/cashier/pos_terminal-products.html">
+            <button class="action-button products" style="width: 120px; height: 35px; background-color: #ffffff;">Products</button>
+        </a>
+        <a href="/html/cashier/view_sales_transaction.html">
+            <button class="action-button view-sales-history" style="width: 170px; height: 40px; border-radius: 15px;">View Sales History</button>
+        </a>
+    </div>
+
+    
+    <!-- Services/Products Cards Container -->
+    <div class="services-product-container mt-6 grid grid-cols-3 gap-3">
+        <div class="service-product-card">
+            <img src="/graphics/icons/consultation.png" alt="Consultation Icon" class="service-product-icon">
+            <span class="service-product-label">Consultation</span>
+            <span class="product-service-id">ID: C10219</span>
+            <div class="price-stocks-container"> 
+                <span class="service-product-price">₱200.00</span>
+                <!-- <span class="item-stocks">37 Stocks</span> -->
+            </div>
+            <img src="/graphics/pictures/tem-barcode.png" alt="Barcode" class="service-product-barcode">
+        </div>
+
+        <div class="service-product-card">
+            <img src="/graphics/icons/vaccine.png" alt="Consultation Icon" class="service-product-icon">
+            <span class="service-product-label">Vaccine</span>
+            <span class="product-service-id">ID: V19115</span>
+            <div class="price-stocks-container"> 
+                <span class="service-product-price">₱200.00</span>
+                <!-- <span class="item-stocks">37 Stocks</span> -->
+            </div>
+            <img src="/graphics/pictures/tem-barcode.png" alt="Barcode" class="service-product-barcode">
+        </div>
+
+        <div class="service-product-card">
+            <img src="/graphics/icons/deworming.png" alt="Consultation Icon" class="service-product-icon">
+            <span class="service-product-label">Deworming</span>
+            <span class="product-service-id">ID: D10154</span>
+            <div class="price-stocks-container"> 
+                <span class="service-product-price">₱200.00</span>
+                <!-- <span class="item-stocks">37 Stocks</span> -->
+            </div>
+            <img src="/graphics/pictures/tem-barcode.png" alt="Barcode" class="service-product-barcode">
+        </div>
+
+        <div class="service-product-card">
+            <img src="/graphics/icons/grooming.png" alt="Consultation Icon" class="service-product-icon">
+            <span class="service-product-label">Grooming</span>
+            <span class="product-service-id">ID: G56091</span>
+            <div class="price-stocks-container"> 
+                <span class="service-product-price">₱200.00</span>
+                <!-- <span class="item-stocks">37 Stocks</span> -->
+            </div>
+            <img src="/graphics/pictures/tem-barcode.png" alt="Barcode" class="service-product-barcode">
+        </div>
+
+        <div class="service-product-card">
+            <img src="/graphics/icons/ultrasound.png" alt="Consultation Icon" class="service-product-icon">
+            <span class="service-product-label">Ultrasound</span>
+            <span class="product-service-id">ID: U30181</span>
+            <div class="price-stocks-container"> 
+                <span class="service-product-price">₱200.00</span>
+                <!-- <span class="item-stocks">37 Stocks</span> -->
+            </div>
+            <img src="/graphics/pictures/tem-barcode.png" alt="Barcode" class="service-product-barcode">
+        </div>
+
+        <div class="service-product-card">
+            <img src="/graphics/icons/x-rays.png" alt="Consultation Icon" class="service-product-icon">
+            <span class="service-product-label">X-ray</span>
+            <span class="product-service-id">ID: X90084</span>
+            <div class="price-stocks-container"> 
+                <span class="service-product-price">₱200.00</span>
+                <!-- <span class="item-stocks">37 Stocks</span> -->
+            </div>
+            <img src="/graphics/pictures/tem-barcode.png" alt="Barcode" class="service-product-barcode">
+        </div>
+
+        <div class="service-product-card">
+            <img src="/graphics/icons/lab-blood-test.png" alt="Consultation Icon" class="service-product-icon">
+            <span class="service-product-label">Lab/Blood Chem</span>
+            <span class="product-service-id">ID: LBC22</span>
+            <div class="price-stocks-container"> 
+                <span class="service-product-price">₱200.00</span>
+                <!-- <span class="item-stocks">37 Stocks</span> -->
+            </div>
+            <img src="/graphics/pictures/tem-barcode.png" alt="Barcode" class="service-product-barcode">
+        </div>
+
+        <div class="service-product-card">
+            <img src="/graphics/icons/surgery.png" alt="Consultation Icon" class="service-product-icon">
+            <span class="service-product-label">Surgery</span>
+            <span class="product-service-id">ID: S98511</span>
+            <div class="price-stocks-container"> 
+                <span class="service-product-price">₱200.00</span>
+                <!-- <span class="item-stocks">37 Stocks</span> -->
+            </div>
+            <img src="/graphics/pictures/tem-barcode.png" alt="Barcode" class="service-product-barcode">
+        </div>
+    </div>
+    </div>
+
+
+  
+    <!-- RIGHT CONTAINER -->
+    <div class="right-container bg-white p-5 shadow-2xl w-64 flex flex-col items-start mt-2">
+        <div class="customer-details">
+            <div class="flex items-center mb-1">
+                <label class="invoice-label mr-2">INVOICE NO.:</label>
+                <span id="invoice-number" class="invoice-number">000058319</span>
+            </div>
+        
+            <div class="flex items-center mb-1 space-x-2">
+                <div class="flex items-center mr-1">
+                    <label class="invoice-customer mr-1">Customer</label>
+                    <span id="customer-name" class="input-field"></span>
+                </div>
+        
+                <div class="flex items-center">
+                    <label class="invoice-discount mr-1">Discount</label>
+                    <span id="discount-type" class="input-field"></span>
+                </div>
+            </div>
+        
+            <div class="flex items-center mb-1 space-x-2">
+                <div class="flex items-center mr-1">
+                    <label class="invoice-pet mr-1">Pet Name</label>
+                    <span id="pet-name" class="input-field"></span>
+                </div>
+        
+                <div class="flex items-center">
+                    <label class="invoice-contact mr-1">Contact</label>
+                    <span id="contact-number" class="input-field contact-input"></span>
+                </div>
+            </div>
+        </div>
+        
+
+            <!-- FOR THE RECEIPT PART -->
+            <div class="summary" style="font-size: 15px; margin-bottom: 10px; font-family: 'Inter Bold', sans-serif;">Summary</div>
+            <div id="service-cards-container" class="service-cards-container mt-5">
+            
+                <!-- New Container for Cards -->
+                <div class="service-cards mt-1">
+                    <div class="card" data-price="200"> <!-- Deworming Card -->
+                        <div class="type-of-purchase">Services</div>
+                        <div class="service-product-id">D10154</div>
+                        <div class="service-product-name">Deworming</div>
+
+                        <!-- Product/Service Amount Control -->
+                        <div class="product-service-amount">
+                            <div class="item-count">Qty. 1</div>
+                        </div>
+
+                        <!-- Price Display -->
+                        <div class="price">₱200.00</div>
+                        <div class="total-price">₱200.00</div>
+                    </div>
+
+                    <div class="card" data-price="40"> <!-- Floof Pets Cat Multivitamins Card -->
+                        <div class="type-of-purchase">Products</div>
+                        <div class="service-product-id">CMV85106</div>
+                        <div class="service-product-name">Floof Pets Cat Multivitamins</div>
+
+                        <!-- Product/Service Amount Control -->
+                        <div class="product-service-amount">
+                            <div class="item-count">Qty. 2</div>
+                        </div>
+
+                        <!-- Price Display -->
+                        <div class="price">₱40.00</div>
+                        <div class="total-price">₱80.00</div>
+                    </div>
+
+                    <div class="card" data-price="190"> <!-- Goodest Cat Tender Tuna Card -->
+                        <div class="type-of-purchase">Products</div>
+                        <div class="service-product-id">CT749120</div>
+                        <div class="service-product-name">Goodest Cat Tender Tuna Pate Cat Wet Food</div>
+
+                        <!-- Product/Service Amount Control -->
+                        <div class="product-service-amount">
+                            <div class="item-count">Qty. 2</div>
+                        </div>
+
+                        <!-- Price Display -->
+                        <div class="price">₱190.00</div>
+                        <div class="total-price">₱380.00</div>
+                    </div>
+                </div>
+            </div>
+
+        <!--                            -->
+        <!-- Cashier Details and receipt -->
+        <!--                           -->
+        <div class="cashier-details">
+            <div class="flex items-center mb-1">
+                <label class="cashier-label mr-2">Cashier:</label>
+                <span class="cashier-name">Eden Santillan</span>
+            </div>
+            <div class="flex items-center">
+                <span class="employee-id">T01-CAS2149</span>
+            </div>
+        
+            <!-- Receipt Summary Subtotal -->
+            <div class="subtotal-total-receipt-summary mt-2">
+                <span class="subtotal-label">Subtotal</span>
+                <span class="subtotal-amount">₱480.00</span>
+            </div>
+        
+            <!-- VAT and Discount breakdown -->
+            <div class="subtotal-summary mt-1">
+                <div class="vat">
+                    <span class="vat-label">VAT</span>
+                    <span class="vat-amount">10.50</span>
+                </div>
+                <div class="discount">
+                    <span class="discount-label">Discount</span>
+                    <span class="discount-amount">-0</span>
+                </div>
+            </div>
+        
+            <!-- Partition Line -->
+            <div class="partition-line"></div>
+        
+            <!-- Receipt Summary total -->
+            <div class="subtotal-total-receipt-summary mt-2">
+                <span class="total-label">Total</span>
+                <span class="total-amount">₱490.50</span>
+            </div>
+        
+            <!-- Total amount and change breakdown -->
+            <div class="total-summary mt-1">
+                <div class="amount-tendered">
+                    <span class="tendered-label">Amount Tendered</span>
+                    <input type="text" class="input-field-tendered tendered-amount" placeholder="0.00" id="tenderedInput" oninput="calculateChange()">
+                </div>
+                <div class="change">
+                    <span class="change-label">Change</span>
+                    <span class="change-amount" id="changeAmount">0.00</span>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+
+        <!--                   -->
+        <!-- Buttons Container -->
+         <!--                   -->
+        <div class="buttons mt-4 flex space-x-4">
+            <button class="cancel-button" onclick="goBack()">CANCEL</button>
+            <button class="pay-button" id="payButton" disabled>PAY</button>
+        </div>
+
+        <!--                                      -->
+        <!-- Modal Structure for the receipt copy -->
+         <!--                                     -->
+       
+         <div id="payModal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">Shepherd Animal Clinic</div>
+                    <div class="modal-address">Florinda bldg. Pecsonville Tungkong Mangga Quirino Highway, San Jose del Monte, Bulacan</div>
+                    <div class="modal-contact">(044) 307 4809</div>
+                    <div class="modal-email">shepherdanimalclinic@gmail.com</div>
+                </div>
+        
+                <div class="receipt-information">
+                    <div class="receipt-row">
+                        <span class="invoice-label-modal">Invoice No.:</span>
+                        <span class="invoice-number-modal">000058319</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span class="date-time-label-modal">Date:</span>
+                        <span class="date-time-modal">2024/05/05 01:15:30 PM</span>
+                    </div>
+                    <div class="receipt-row">
+                        <span class="user-label-modal">User:</span>
+                        <span class="user-name-modal">Eden Santillan</span>
+                    </div>
+                </div>
+        
+                <!-- New Receipt Summary Section -->
+                <div class="receipt-summary-modal">
+                    <div class="partition-modal"></div>
+                    <div class="summary-row">
+                        <span class="quantity-label-modal">Qty</span>
+                        <span class="description-label-modal">Description</span>
+                        <span class="price-label-modal">Price</span>
+                        <span class="amount-label-modal">Amount</span>
+                    </div>
+                    <div class="partition-modal"></div>
+                    
+                    <!-- New item-service-1 container -->
+                    <div class="item-service">
+                        <div class="item-summary-row">
+                            <span class="quantity-amount-modal">1</span>
+                            <span class="description-amount-modal">Deworming</span>
+                            <span class="price-amount-modal">200.00</span>
+                            <span class="amount-modal">200.00</span>
+                        </div>
+                    </div>
+
+                    <div class="item-service">
+                        <div class="item-summary-row">
+                            <span class="quantity-amount-modal">2</span>
+                            <span class="description-amount-modal">Floof Pets Cat Multivitamins</span>
+                            <span class="price-amount-modal">40.00</span>
+                            <span class="amount-modal">80.00</span>
+                        </div>
+                    </div>
+
+                    <div class="item-service">
+                        <div class="item-summary-row">
+                            <span class="quantity-amount-modal">2</span>
+                            <span class="description-amount-modal">Goodest Cat Tender Tuna Pate Cat Wet Food</span>
+                            <span class="price-amount-modal">190.00</span>
+                            <span class="amount-modal">380.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="partition-modal"></div>
+
+                <!-- New Transaction Summary Section -->
+                <div class="transaction-summary">
+
+                    <div class="transaction-row">
+                        <span class="subtotal-label-modal">Subtotal</span>
+                        <span class="subtotal-amount-modal">480.00</span>
+                    </div>
+                    
+                    <div class="transaction-row">
+                        <span class="discount-label-modal">Discount</span>
+                        <span class="discount-amount-modal">0.00</span>
+                    </div>
+                    
+                    <div class="transaction-row">
+                        <span class="vat-label-modal">VAT</span>
+                        <span class="vat-amount-modal">10.50</span>
+                    </div>
+
+                    <div class="transaction-row">
+                        <span class="total-label-modal">Total</span>
+                        <span class="total-amount-modal">490.50</span>
+                    </div>
+                    
+                    <div class="transaction-row">
+                        <span class="cash-paid-label-modal">Cash</span>
+                        <span class="cash-paid-amount-modal">1000.00</span>
+                    </div>
+
+                    <div class="transaction-row">
+                        <span class="paid-amount-label-modal">Paid amount</span>
+                        <span class="paid-amount-modal">-490.50</span>
+                    </div>
+                    
+                    <div class="transaction-row">
+                        <span class="change-label-modal">Change</span>
+                        <span class="change-amount-modal">509.50</span>
+                    </div>
+
+                </div>
+
+            <div class="partition-modal"></div>
+            
+            <div class="footer-receipt-modal">
+                <div class="footer-text-main">THIS IS YOUR OFFICIAL RECEIPT</div>
+                <div class="footer-text-sub">Thank you, Come Again!</div>
+                <img src="/graphics/pictures/receipt-barcode.png" alt="Barcode" class="footer-barcode">
+            </div>
+            
+
+                
+            </div>
+        </div>
+        
+
+
+
+
+
+
+
+    </div>
+    <script src="/js/cashier/pos_terminal_summary.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shepherd Animal Clinic - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admin/admin_add-user.css"> 
+    <link rel="stylesheet" href="/graphics/fonts/fonts.css">
+    <link rel="stylesheet" href="/graphics/color/colors.css">
+    <link rel="stylesheet" href="/dist/output.css">
+</head>
+<body class="flex bg-gray-50">
+
+    <!-- Sidebar Navigation -->
+    <div id="sidebar" class="sidebar text-black h-screen p-4 flex flex-col justify-between w-64 bg-white">
+        <!-- Top section for button and logo -->
+        <div>
+            <div class="flex justify-end mb-4 relative">
+                <button class="toggle-btn bg-olive-green text-white w-8 h-8 rounded hover:bg-green-700" onclick="toggleSidebar()">☰</button>
+            </div>
+            <div class="flex justify-center mb-4">
+                <img src="/graphics/pictures/Shepherd_Animal_Clinic_Logo.png" alt="Clinic Logo" class="logo transition-all duration-300">
+            </div>
+            <div class="nav-links mt-10">
+                <p class="sidebar-link custom-hover text-black block py-2 px-4 text-center mb-2" data-title="hello_admin">Hello, Admin!</p>
+            </div>
+            
+        </div>
+
+        <div class="logout-button-container flex flex-col justify-center items-center mt-auto">
+            <span class="employee-status-info flex items-center text-center mt-3 mb-3 border-medium-dark-green relative">
+                <span class="user-initials flex items-center justify-center bg-pastel-green rounded-full text-black w-6 h-6 mr-2 relative">
+                    TM
+                    <span class="active-indicator absolute"></span>
+                </span>
+                <span class="employee-name">Trish Mercado</span>
+            </span>
+            <a href="/html/login-tailwind.html" class="sidebar-link logout custom-hover flex items-center justify-center text-medium-dark-green block py-2 px-4 text-center">
+                <img src="/graphics/icons/Logout.png" alt="Logout Icon" class="w-5 h-5 mr-2">
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="mainContent" class="content flex-1 p-8 bg-gray-50 transition-all duration-300">
+
+        <!--            -->
+        <!-- Title Area -->
+         <!--            -->
+         <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+                <div class="title-date-container">
+                    <h1 class="module-title">User Management</h1>
+                    <p class="module-subtitle">Manage your team members and their account here</p>
+                    <!-- <span class="date-time" id="dateTime"></span> -->
+                </div>
+            </div>
+        </div>
+
+
+        <!--                                                              -->
+       <!-- Search Bar Container, View Archived Text, and Add User Button -->
+       <!--                                                              -->
+
+       <div class="flex items-center justify-between mt-1">
+            <!-- Left-aligned elements: Search bar and View Archived Here -->
+            
+            <button class="back-button" onclick="history.back()">
+                <img src="/graphics/icons/back-button.png" alt="Back Button" class="back-button-icon">
+            </button>
+        </div>
+
+
+        <!--                                  -->
+        <!-- USER PHOTO INPUT AND GEENRATE ID -->
+        <!--                                  -->
+        <div class="user-photo-id-container">
+            <label class="upload-circle">
+                <img src="/graphics/icons/camera-icon.png" alt="Camera Icon" class="camera-icon">
+                <input type="file" class="file-input" accept="image/*" />
+            </label>
+            <div class="new-user-role-container">
+                <p class="new-user-name">New User</p>
+                <div class="role-input-container">
+                    <select class="role-select" id="roleSelect">
+                        <option value="" selected disabled>Assign role</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Cashier">Cashier</option>
+                        <option value="Stock Controller">Stock Controller</option>
+                    </select>
+                    <span class="add-role-text">+ Add role</span>
+                </div>
+            </div>
+        
+            <div class="employee-id-container">
+                <span id="employee-id-display" class="employee-id-display">Employee ID</span>
+                <button class="generate-eid-button" onclick="generateEmployeeID()">Generate EID</button>
+            </div>
+        </div>
+        
+        <!--                           -->
+        <!-- PERSONAL INFORMATION PART -->
+        <!--                           -->
+        <div class="personal-info-container">
+            <h2 class="personal-info-title">Personal Information</h2>
+        
+            <div class="personal-info-forms">
+                <div class="top-forms">
+                    <div class="first-name-field">
+                        <label class="name-label">First Name</label>
+                        <input type="text" class="first-name-input" placeholder="Enter First Name">
+                    </div>
+                    <div class="middle-name-field">
+                        <label class="name-label">Middle Name</label>
+                        <input type="text" class="middle-name-input" placeholder="Enter Middle Name">
+                    </div>
+                    <div class="last-name-field">
+                        <label class="name-label">Last Name</label>
+                        <input type="text" class="last-name-input" placeholder="Enter Last Name">
+                    </div>
+                </div>
+                <div class="bottom-forms">
+                    <div class="email-address-field">
+                        <label class="email-address-label">Email Address</label>
+                        <input type="email" class="email-address-input" placeholder="Enter Email Address"
+                               pattern="^[a-zA-Z0-9._%+-]+@(gmail\.com|vetflow\.com)$" required>
+                    </div>
+                    <div class="blank-field"></div>
+                    <div class="contact-number-field">
+                        <label class="contact-number-label">Contact Number</label>
+                        <input type="text" class="contact-number-input" placeholder="Enter Contact Number" maxlength="11">
+                    </div>
+                </div>
+        
+                <h2 class="address-title">Address</h2>
+                <div class="address-field">
+                    <label class="address-label">Blk/Lot No. House No. Street Name Barangay City/Municipality Province Region</label>
+                    <input type="text" class="address-input" placeholder="Enter Address">
+                </div>
+            </div>
+        </div>
+        
+        <div class="button-container">
+            <button class="clear-button">Clear</button>
+            <button class="save-button">Save</button>
+        </div>
+
+
+        </div>
+        
+        
+        
+        
+        
+        
+    
+  
+    </div>
+
+   
+
+    <!-- JavaScript links -->
+    <script src="/js/admin/admin_add-user.js"></script> 
+</body>
+</html>

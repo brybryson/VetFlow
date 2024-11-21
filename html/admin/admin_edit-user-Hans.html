@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shepherd Animal Clinic - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admin/admin_edit-user.css"> 
+    <link rel="stylesheet" href="/graphics/fonts/fonts.css">
+    <link rel="stylesheet" href="/graphics/color/colors.css">
+    <link rel="stylesheet" href="/dist/output.css">
+</head>
+<body class="flex bg-gray-50">
+
+    <!-- Sidebar Navigation -->
+    <div id="sidebar" class="sidebar text-black h-screen p-4 flex flex-col justify-between w-64 bg-white">
+        <!-- Top section for button and logo -->
+        <div>
+            <div class="flex justify-end mb-4 relative">
+                <button class="toggle-btn bg-olive-green text-white w-8 h-8 rounded hover:bg-green-700" onclick="toggleSidebar()">☰</button>
+            </div>
+            <div class="flex justify-center mb-4">
+                <img src="/graphics/pictures/Shepherd_Animal_Clinic_Logo.png" alt="Clinic Logo" class="logo transition-all duration-300">
+            </div>
+            <div class="nav-links mt-10">
+                <p class="sidebar-link custom-hover text-black block py-2 px-4 text-center mb-2" data-title="hello_admin">Hello, Admin!</p>
+            </div>
+            
+        </div>
+
+        <div class="logout-button-container flex flex-col justify-center items-center mt-auto">
+            <span class="employee-status-info flex items-center text-center mt-3 mb-3 border-medium-dark-green relative">
+                <span class="user-initials flex items-center justify-center bg-pastel-green rounded-full text-black w-6 h-6 mr-2 relative">
+                    TM
+                    <span class="active-indicator absolute"></span>
+                </span>
+                <span class="employee-name">Trish Mercado</span>
+            </span>
+            <a href="/html/login-tailwind.html" class="sidebar-link logout custom-hover flex items-center justify-center text-medium-dark-green block py-2 px-4 text-center">
+                <img src="/graphics/icons/Logout.png" alt="Logout Icon" class="w-5 h-5 mr-2">
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="mainContent" class="content flex-1 p-8 bg-gray-50 transition-all duration-300">
+
+        <!--            -->
+        <!-- Title Area -->
+         <!--            -->
+         <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+                <div class="title-date-container">
+                    <h1 class="module-title">User Management</h1>
+                    <p class="module-subtitle">Manage your team members and their account here</p>
+                    <!-- <span class="date-time" id="dateTime"></span> -->
+                </div>
+            </div>
+        </div>
+
+
+        <!--                                                              -->
+       <!-- Search Bar Container, View Archived Text, and Add User Button -->
+       <!--                                                              -->
+
+    <div class="flex items-center justify-between mt-1 mb-4">
+        <!-- Left-aligned back button -->
+        <button class="back-button" onclick="history.back()">
+            <img src="/graphics/icons/back-button.png" alt="Back Button" class="back-button-icon">
+        </button>
+    
+        <!-- Right-aligned archive button -->
+        <button class="archive-button">
+            Archive
+            <img src="/graphics/icons/move-to-archive-button.png" alt="Archive Icon">
+        </button>
+    </div>
+
+
+        <!--                                  -->
+        <!-- USER PHOTO INPUT AND GEENRATE ID -->
+        <!--                                  -->
+        <div class="user-photo-id-container">
+            <button class="edit-button-username-id">
+                Edit
+                <img src="/graphics/icons/edit-details.png" alt="Edit Icon" class="edit-icon">
+            </button>
+        
+            <label class="upload-circle">
+                <img src="/graphics/pictures/hans-lecoso.png" alt="Profile Picture" class="profile-image">
+            </label>
+            
+            <div class="new-user-role-container">
+                <p class="new-user-name">Hans Lecoso</p>
+                <div class="role-input-container">
+                    <span class="role-indicator">Stock Controller</span>
+                </div>
+            </div>
+        
+            <div class="employee-id-container">
+                <span id="employee-id-display" class="employee-id-display">Employee ID</span>
+                <span id="generated-employee-id" class="generated-employee-id">T04-STC45468</span>
+            </div>
+        </div>
+        
+        
+        
+    <div class="second-container-forms">
+        <!--                           -->
+        <!-- PERSONAL INFORMATION PART -->
+        <!--                           -->
+        <div class="personal-info-container">
+            <button class="edit-button-personal-info">
+                Edit
+                <img src="/graphics/icons/edit-details.png" alt="Edit Icon" class="edit-icon">
+            </button>
+        
+            <h2 class="personal-info-title">Personal Information</h2>
+        
+            <div class="personal-info-forms">
+                <div class="top-forms">
+                    <div class="first-name-field">
+                        <label class="name-label">First Name</label>
+                        <span class="info-text">Hans</span>
+                    </div>
+                    <div class="middle-name-field">
+                        <label class="name-label">Middle Name</label>
+                        <span class="info-text">Labrusco</span>
+                    </div>
+                    <div class="last-name-field">
+                        <label class="name-label">Last Name</label>
+                        <span class="info-text">Lecoso</span>
+                    </div>
+                </div>
+                <div class="bottom-forms">
+                    <div class="email-address-field">
+                        <label class="email-address-label">Email Address</label>
+                        <span class="info-text">hanslecoso187@gmail.com</span>
+                    </div>
+                    <div class="blank-field"></div>
+                    <div class="contact-number-field">
+                        <label class="contact-number-label">Contact Number</label>
+                        <span class="info-text">09651249901</span>
+                    </div>
+                </div>
+        
+                <h2 class="address-title">Address</h2>
+                <div class="address-field">
+                    <label class="address-label">Blk/Lot No. House No. Street Name Barangay City/Municipality Province Region</label>
+                    <span class="info-text-address">4513 Maligaya St. Brgy. Fatima, San Jose del Monte, Bulacan Region III</span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- RECENT ACTIVITY CONTAINER -->
+        <div class="recent-activity-container">
+            <h2 class="recent-activity-title">Recent Activity</h2>
+            
+            <div class="activity-info">
+                <div class="activity-row">
+                    <img src="/graphics/pictures/hans-lecoso.png" alt="Profile Image" class="profile-image-activity">
+                    
+                    <div class="activity-details">
+                        <span class="activity-username">Hans Lecoso</span>
+                        <span class="activity-description">Added supplies to the Inventory</span>
+                        <span class="activity-time">23 mins ago</span>
+                    </div>
+                    
+                    <div class="activity-date">Sep 2, 2024</div>
+                </div>
+
+                <div class="activity-row">
+                    <img src="/graphics/pictures/hans-lecoso.png" alt="Profile Image" class="profile-image-activity">
+                    
+                    <div class="activity-details">
+                        <span class="activity-username">Hans Lecoso</span>
+                        <span class="activity-description">Added supplies to the Inventory</span>
+                        <span class="activity-time">23 mins ago</span>
+                    </div>
+                    
+                    <div class="activity-date">Sep 2, 2024</div>
+                </div>
+
+                <div class="activity-row">
+                    <img src="/graphics/pictures/hans-lecoso.png" alt="Profile Image" class="profile-image-activity">
+                    
+                    <div class="activity-details">
+                        <span class="activity-username">Hans Lecoso</span>
+                        <span class="activity-description">Added supplies to the Inventory</span>
+                        <span class="activity-time">23 mins ago</span>
+                    </div>
+                    
+                    <div class="activity-date">Sep 2, 2024</div>
+                </div>
+
+                <div class="activity-row">
+                    <img src="/graphics/pictures/hans-lecoso.png" alt="Profile Image" class="profile-image-activity">
+                    
+                    <div class="activity-details">
+                        <span class="activity-username">Hans Lecoso</span>
+                        <span class="activity-description">Added supplies to the Inventory</span>
+                        <span class="activity-time">23 mins ago</span>
+                    </div>
+                    
+                    <div class="activity-date">Sep 2, 2024</div>
+                </div>
+
+                <div class="activity-row">
+                    <img src="/graphics/pictures/hans-lecoso.png" alt="Profile Image" class="profile-image-activity">
+                    
+                    <div class="activity-details">
+                        <span class="activity-username">Hans Lecoso</span>
+                        <span class="activity-description">Added supplies to the Inventory</span>
+                        <span class="activity-time">23 mins ago</span>
+                    </div>
+                    
+                    <div class="activity-date">Sep 2, 2024</div>
+                </div>
+
+                <div class="activity-row">
+                    <img src="/graphics/pictures/hans-lecoso.png" alt="Profile Image" class="profile-image-activity">
+                    
+                    <div class="activity-details">
+                        <span class="activity-username">Hans Lecoso</span>
+                        <span class="activity-description">Added supplies to the Inventory</span>
+                        <span class="activity-time">23 mins ago</span>
+                    </div>
+                    
+                    <div class="activity-date">Sep 2, 2024</div>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+    </div>
+
+
+
+
+
+        </div>
+    </div>
+
+   
+
+    <!-- JavaScript links -->
+    <script src="/js/admin/admin_edit-user.js"></script> 
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shepherd Animal Clinic - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/manager/manager_landing-page.css"> 
+    <link rel="stylesheet" href="/graphics/fonts/fonts.css">
+    <link rel="stylesheet" href="/graphics/color/colors.css">
+    <link rel="stylesheet" href="/dist/output.css">
+</head>
+<body class="flex" style="background-color: #F9FAFB;">
+
+    <!-- Sidebar Navigation -->
+    <div id="sidebar" class="sidebar text-black h-screen p-4 flex flex-col justify-between w-64 bg-white">
+        <!-- Top section for button and logo -->
+        <div>
+            <div class="flex justify-end mb-4 relative">
+                <button class="toggle-btn bg-olive-green text-white w-8 h-8 rounded hover:bg-green-700" onclick="toggleSidebar()">☰</button>
+            </div>
+            <div class="flex justify-center">
+                <img src="/graphics/pictures/Shepherd_Animal_Clinic_Logo.png" alt="Clinic Logo" class="logo transition-all duration-300">
+            </div>
+            <div class="nav-links mt-5">
+                <a href="/html/manager/manager_landing-page.html" data-title="Dashboard" class="sidebar-link custom-hover text-black block  text-center ">Dashboard</a>
+                <a href="/html/manager/manager_user-management.html" data-title="User_Management" class="sidebar-link custom-hover text-black block  text-center ">User Management</a>
+                <a href="#/html/manager_data_management.html" data-title="Data_Management" class="sidebar-link custom-hover text-black block text-center ">Data Management</a>
+                <a href="#/html/manager_reports.html" data-title="Reports" class="sidebar-link custom-hover text-black block text-center ">Reports</a>
+                <a href="#/html/manager_item-stocks.html" data-title="Item_Stocks" class="sidebar-link custom-hover text-black block  text-center ">Item Stocks</a>
+                <a href="#/html/manager_vendors.html" data-title="Vendor" class="sidebar-link custom-hover text-black block  text-center ">Vendor</a>
+                <a href="#/html/manager-sales-history.html" data-title="Sales_History" class="sidebar-link custom-hover text-black block text-center">Sales History</a>
+            </div>
+            
+        </div>
+
+        <div class="logout-button-container flex flex-col justify-center items-center mt-auto">
+            <span class="employee-status-info flex items-center text-center mt-3 mb-3 border-medium-dark-green relative">
+                <span class="user-initials flex items-center justify-center bg-pastel-green rounded-full text-black w-6 h-6 mr-2 relative">
+                    TM
+                    <span class="active-indicator absolute"></span>
+                </span>
+                <span class="employee-name">Trish Mercado</span>
+            </span>
+            <a href="/html/login-tailwind.html" class="sidebar-link logout custom-hover flex items-center justify-center text-medium-dark-green block py-2 px-4 text-center">
+                <img src="/graphics/icons/Logout.png" alt="Logout Icon" class="w-5 h-5 mr-2">
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="mainContent" class="content flex-1 p-8 bg-gray-50 transition-all duration-300">
+
+        <!--            -->
+        <!-- Title Area -->
+         <!--            -->
+        <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+                <div class="title-date-container">
+                    <h1 class="module-title">Dashboard</h1>
+                    <!-- <p class="module-subtitle">Manage your team members and their account here</p> -->
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="/html/manager/manager_activity-logs.html" class="action-button">
+                    <img src="/graphics/icons/activity_logs.png" alt="Activity Logs Icon" class="button-icon">
+                    Activity Logs
+                    <div class="notif-badge" id="notif-activity-logs">4</div>
+                </a>
+                <a href="/html/manager/manager_archive-page.html" class="action-button">
+                    <img src="/graphics/icons/admin_archive_icon.png" alt="Archive Icon" class="button-icon">
+                    Archive
+                    <div class="notif-badge" id="notif-archive">2</div>
+                </a>
+            </div>            
+        </div>
+        
+
+
+
+  
+
+       <div class="flex items-center justify-between mt-1">
+     
+    </div>
+
+        <!-- BUTTONS PART -->
+        <div class="modules-container">
+            <button class="module-button btn-1" style="background-color: #7A51B5;">
+                <div class="content-wrapper">
+                    <img src="/graphics/icons/user-management.png" alt="User Management Icon" class="module-icon">
+                    <span class="module-text">User Management</span>
+                </div>
+                <div class="view-more" style="background-color: #5a3b86;">View More</div>
+            </button>
+            <button class="module-button btn-2" style="background-color: #EAAB00;">
+                <div class="content-wrapper">
+                    <img src="/graphics/icons/data-management.png" alt="Data Management Icon" class="module-icon">
+                    <span class="module-text">Data Management</span>
+                </div>
+                <div class="view-more" style="background-color: #ad7f00;">View More</div>
+            </button>
+            <button class="module-button btn-3" style="background-color: #27AC96;">
+                <div class="content-wrapper">
+                    <img src="/graphics/icons/reports-icon.png" alt="Reports Icon" class="module-icon">
+                    <span class="module-text">Reports</span>
+                </div>
+                <div class="view-more" style="background-color: #1d7f6f;">View More</div>
+            </button>
+            <button class="module-button btn-4" style="background-color: #036FEE;">
+                <div class="content-wrapper">
+                    <img src="/graphics/icons/item-stocks.png" alt="Item Stocks Icon" class="module-icon">
+                    <span class="module-text">Item Stocks</span>
+                </div>
+                <div class="view-more" style="background-color: #0252b0;">View More</div>
+            </button>
+            <button class="module-button btn-5" style="background-color: #343434;">
+                <div class="content-wrapper">
+                    <img src="/graphics/icons/vendors.png" alt="Vendors Icon" class="module-icon">
+                    <span class="module-text">Vendors</span>
+                </div>
+                <div class="view-more" style="background-color: #262626;">View More</div>
+            </button>
+            <button class="module-button btn-6" style="background-color: #5EA028;">
+                <div class="content-wrapper">
+                    <img src="/graphics/icons/activity-history.png" alt="Sales History Icon" class="module-icon">
+                    <span class="module-text">Sales History</span>
+                </div>
+                <div class="view-more" style="background-color: #46761e;">View More</div>
+            </button>
+        </div>
+        
+        
+        
+        
+       
+  
+
+        </div>
+    </div>
+
+   
+
+    <!-- JavaScript links -->
+    <script src="/js/manager/manager_landing-page.js"></script> 
+    
+</body>
+</html>
