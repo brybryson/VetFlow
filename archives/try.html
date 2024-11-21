@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Options Popup Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/admin_page.css"> 
+    <link rel="stylesheet" href="/graphics/fonts/fonts.css">
+    <link rel="stylesheet" href="/graphics/color/colors.css">
+    <link rel="stylesheet" href="/dist/output.css">
+    <style>
+        /* User Information Container Styling */
+        .user-information-container {
+            width: 100%;
+            height: auto;
+            background-color: #dfe4d4;
+            padding: 1rem;
+            margin-left: 0.5rem;
+        }
+
+        .user-labels-row, .user-row {
+            display: grid;
+            grid-template-columns: 0.2fr 2.5fr 1.5fr 1.5fr 1.5fr 0.3fr;
+            align-items: center;
+            background-color: #F8F8F8;
+            padding: 0.5rem;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+        }
+
+        .options-button {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .ellipsis-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Popup container styling */
+        .options-popup {
+            display: none; /* Initially hidden */
+            position: absolute;
+            right: 0;
+            top: 30px; /* Adjust to appear below the options button */
+            width: 120px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 8px;
+            font-size: 12px;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        /* Display popup when active */
+        .options-popup.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-information-container">
+        <!-- Header Row of Labels with Grid Layout -->
+        <div class="user-labels-row grid">
+            <input type="checkbox" id="selectAllCheckbox" class="user-checkbox" />
+            <span class="label user-name-label">User Name</span>
+            <span class="label role-label">Role</span>
+            <span class="label last-active-label">Last Active</span>
+            <span class="label date-added-label">Date Added</span>
+            <span class="label empty-label"></span>
+        </div>
+
+        <!-- User Row with Information and Popup Options -->
+        <div class="user-row">
+            <input type="checkbox" class="user-checkbox" />
+
+            <!-- User Name and Info -->
+            <div class="user-name-container">
+                <img src="/graphics/pictures/trish-mercado.png" alt="Trish Mercado" class="user-photo">
+                <div class="user-info">
+                    <p class="user-full-name">Trish Mercado</p>
+                    <p class="user-code">T01-ADM1009</p>
+                </div>
+            </div>
+
+            <!-- Role Container -->
+            <div class="role-container">
+                <span class="role-admin">Admin</span>
+                <span class="role-manager">Manager</span>
+            </div>
+
+            <!-- Last Active Date -->
+            <span class="last-active-date">Sept 26, 2024</span>
+
+            <!-- Date Added -->
+            <span class="date-added">Jan 30, 2021</span>
+
+            <!-- Options Button and Popup -->
+            <button class="options-button" onclick="toggleOptionsPopup(this)">
+                <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon">
+            </button>
+            <div class="options-popup">
+                <p>Option 1</p>
+                <p>Option 2</p>
+                <p>Option 3</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for toggling popup visibility -->
+    <script>
+        function toggleOptionsPopup(button) {
+            const popup = button.nextElementSibling;
+            popup.classList.toggle('active');
+        }
+
+        // Close popup when clicking outside
+        document.addEventListener('click', function (e) {
+            const isOptionsButton = e.target.closest('.options-button');
+            if (!isOptionsButton) {
+                document.querySelectorAll('.options-popup').forEach(popup => {
+                    popup.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

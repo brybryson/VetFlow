@@ -1,0 +1,575 @@
+   /* Sidebar styles */
+   .sidebar {
+    position: fixed;
+    width: 190px; /* Ensure sidebar is not too wide */
+    transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+    width: 65px; /* Collapsed width */
+}
+
+/* Adjust the margin for the content */
+.content {
+    transition: margin-left 0.3s ease; 
+    margin-left: 190px; /* Space for the sidebar */
+    margin-right: 10px;
+        margin-bottom: 10px;
+    padding: 20px 20px 20px 20px;
+}
+
+.sidebar.collapsed + .content {
+    margin-left: 80px; /* Ensure margin is 0 when sidebar is collapsed */
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+/* Sidebar button and logo styles */
+.toggle-btn {
+    transition: margin 0.3s ease; /* Smooth transition for margin */
+}
+
+.sidebar.collapsed .toggle-btn {
+    margin-bottom: 5px; /* Adjusted spacing when collapsed */
+}
+
+/* Sidebar link styles */
+.sidebar-link {
+    font-size: 13px; /* Regular font size when expanded */
+    font-family: 'Inter Regular', sans-serif;
+
+    padding: 10px 0px; 
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
+    margin-bottom: 0.5rem;
+    height: 2rem;
+}
+
+/* Style for the POS Terminal link without hover effect */
+.sidebar-link[data-title="Dashboard"] {
+    background-color: var(--olive-green); /* Olive green background */
+    color: white; /* Text color */
+    pointer-events: none; /* Disable hover interaction */
+}
+
+/* Hide text when sidebar is collapsed */
+.sidebar.collapsed .sidebar-link {
+    opacity: 0; /* Makes the text invisible */
+    transition: opacity 0.3s ease;
+}
+
+/* Custom hover styles */
+.custom-hover {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 500px;
+    padding: 5px 10px;
+}
+
+.custom-hover:hover {
+    background-color: var(--olive-green); 
+    color: white; 
+}
+
+.custom-hover:active {
+    background-color: var(--olive-green); 
+    color: white; 
+}
+
+/* Logo styles */
+.logo {
+    width: 60%; /* Larger logo when sidebar is expanded */
+    transition: width 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.sidebar.collapsed .logo {
+    width: 80%; /* Adjusted size for the logo when collapsed */
+}
+
+/* Custom spacing class */
+.margin-bottom {
+    margin-bottom: 1rem; /* Adjust the value as needed */
+}
+
+/* Logout Button Styling */
+.logout-button-container {
+    margin-top: auto; /* Pushes it to the bottom of the sidebar */
+    display: flex;
+    justify-content: center; /* Center-align the logout button */
+    padding-bottom: 1rem; /* Adds spacing from the bottom */
+}
+
+.logout {
+    font-weight: bold;
+}
+
+.logout-btn {
+    font-family: 'Inter-medium', sans-serif;
+    font-size: 13px;
+    color: var(--medium-dark-green); /* Set text color to medium-dark-green */
+    display: flex;
+    align-items: center;
+    background: transparent;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.logout-btn:hover {
+    color: var(--olive-green); /* Changes text color on hover */
+}
+
+.logout-icon {
+    width: 24px; /* Icon size */
+    height: 24px;
+    margin-right: 8px; /* Adds space between icon and text */
+    transition: transform 0.3s ease;
+    
+}
+
+/* Hide logout text when sidebar is collapsed */
+.sidebar.collapsed .logout-text {
+    display: none; /* Hide logout text */
+    
+}
+
+.sidebar.collapsed .logout-icon {
+    transform: scale(0.9); /* Slightly scale down icon when sidebar is collapsed */
+    
+}
+
+.user-initials {
+    font-size: 10px;
+    font-family: 'Inter Medium', sans-serif;
+}
+
+/* Styles for "Eden Santillan" text */
+.employee-status-info {
+    font-family: 'Inter-medium', sans-serif;
+    font-size: 13px;
+    color: var(--medium-dark-green);
+    border: 1.5px solid; 
+    border-radius: 500px; 
+    padding: 6px 15px;
+    transition: opacity 0.3s ease;
+}
+
+.employee-name {
+    font-family: 'Inter Regular', sans-serif;
+}
+
+/* Hide "Eden Santillan" text when sidebar is collapsed */
+.sidebar.collapsed .employee-status-info {
+    opacity: 0; 
+    pointer-events: none; 
+}
+
+/* Active status indicator */
+.active-indicator {
+    position: absolute;
+    top: 1px; /* Position above the "ES" circle */
+    right: -3px; /* Position to the right within the circle border */
+    width: 8.5px; /* Diameter of the indicator circle */
+    height: 8px;
+    background-color: #3C8800; /* Active green */
+    border: 1.5px solid white; /* White border */
+    border-radius: 50%; /* Makes it a circle */
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1); /* Optional shadow for clarity */
+}
+
+
+/* Sidebar and Right Container Shadow */
+.sidebar{
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.08);
+    
+}
+
+
+/* MAIN CONTENT */
+/* POS TERMINAL Title Styling */
+/* MAIN CONTENT */
+
+
+/* New Container for Title and Date */
+.title-date-container {
+    display: flex; /* Use flexbox to keep title and subtitle on one line */
+    flex-direction: column; /* Stack title and subtitle vertically */
+    align-items: baseline; /* Align items to the bottom */
+    margin-left: 10px; /* Space for left margin */
+}
+
+    /* POS TERMINAL Title Styling */
+    /* POS TERMINAL Title Styling */
+    .module-title {
+        font-family: 'Inter Bold', sans-serif;
+        font-size: 29px;
+        position: relative;
+    }
+
+    .module-subtitle {
+        font-family: 'Inter Regular', sans-serif;
+        color: #616161;
+        font-size: 14px;
+        margin-top: -5px; /* Add space between title and subtitle */
+    }
+
+
+    .back-button-icon {
+        width: auto;
+        height: 2rem;
+        margin-top: -10px;
+        margin-left: 40px;
+        margin-bottom: 5px;
+    }
+
+
+    /* <!--                                  -->
+    <!-- USER PHOTO INPUT AND GEENRATE ID -->
+    <!--                                  --> */
+    .user-photo-id-container {
+        background-color: #FFFFFF;
+        width: 80%;
+        height: 20%;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.20);
+        border-radius: 20px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0 auto;
+        padding: 2rem;
+        position: relative;
+        margin-bottom: 1rem;
+    }
+    
+    .upload-circle {
+        width: 4rem;
+        height: 4rem;
+        background-color: #c5c5c5;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .file-input {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+    }
+
+    .camera-icon {
+        width: 2rem; /* Adjust size as needed */
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        opacity: 0.7; /* Slight transparency for style */
+    }
+
+    .preview-image {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover; /* Ensures the image fills the circle */
+        display: none; /* Hide the preview image by default */
+    }
+
+    .new-user-role-container {
+        margin-left:1.5rem;
+        display: flex;
+        flex-direction: column;
+        line-height: 0.4rem;
+    }
+    
+    .new-user-name {
+        font-family: 'Inter Bold', sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 0.8rem;
+    }
+    .role-input-container {
+        display: flex;
+        align-items: center;
+    }
+    
+    
+    .role-select {
+        font-family: 'Inter Regular', sans-serif;
+        width: 100px;
+        height: 30px;
+        padding: 0.4rem;
+        background-color: #f5f5f5;
+        border: none;
+        border-radius: 5px;
+        font-size: 10px;
+        outline: none;
+        cursor: pointer;
+    }
+    
+    .role-select option:first-child {
+        display: none; 
+    }
+    
+    .role-select:focus {
+        border: 1px solid #bebebe;
+    }
+    
+    
+
+
+    .add-role-text {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 10px;
+        color: #000000;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+
+    
+    .employee-id-container {
+        position: absolute;
+        top: 1.5rem;
+        right: 2rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column; /* Aligns span above button */
+        align-items: center;
+        margin-right: 60px;
+    }
+    
+    .employee-id-display {
+        font-family: 'Inter Medium', sans-serif;
+        color: black;
+        font-size: 10px;
+        margin-bottom: 0.3rem;
+    }
+    
+    .generate-eid-button {
+        background-color: #C0E5FF;
+        color: #004F88;
+        font-size: 11px;
+        font-family: 'Inter Medium', sans-serif;
+        width: 5.8rem;
+        height: 1.4rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.20);
+    }
+    
+    .generate-eid-button:hover {
+        background-color: #aadbfd;
+    }
+    
+
+
+
+    /*                           */
+    /* PERSONAL INFORMATION PART */
+    /*                           */
+    .personal-info-container {
+        background-color: #FFFFFF;
+        width: 80%;
+        height: 48%;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.20);
+        border-radius: 20px;
+        padding: 1.5rem;
+        margin: 0 auto;
+    }
+    
+    .personal-info-title {
+        font-family: 'Inter Bold', sans-serif;
+        font-size: 13px;
+        color: #000000;
+        margin: 0;
+        padding-bottom: 0.1rem;
+    }
+    
+    .personal-info-forms {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 0.5rem;
+    }
+    
+    .top-forms {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        height: 100%;
+    }
+    
+    .first-name-field, .middle-name-field, .last-name-field {
+        flex: 1;
+        position: relative;
+    }
+    
+    .name-label {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 11px;
+        color: black;
+        position: absolute;
+        top: 0;
+        left: 10px;
+    }
+    
+    .first-name-input, .middle-name-input, .last-name-input {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 10px;
+        color: black;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        padding: 5px 10px;
+        width: 80%;
+        margin-top: 1.2rem;
+        margin-left: 5px;
+    }
+    
+    .bottom-forms {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        height: 100%;
+    }
+    
+    .email-address-field, .blank-field, .contact-number-field {
+        flex: 1;
+        position: relative;
+    }
+    
+    .email-address-label, .contact-number-label {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 11px;
+        color: black;
+        position: absolute;
+        top: 0;
+        left: 10px;
+    }
+    
+    .email-address-input, .contact-number-input {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 10px;
+        color: black;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        padding: 5px 10px;
+        width: 80%;
+        margin-top: 1.2rem;
+        margin-left: 5px;
+    }
+    
+    /* ADDRESS */
+    .address-title {
+        font-family: 'Inter Bold', sans-serif;
+        font-size: 13px;
+        color: #000000;
+        margin: 0;
+        padding-bottom: 0.1rem;
+    }
+    
+    .address-field {
+        position: relative;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    
+    .address-label {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 11px;
+        color: black;
+        position: absolute;
+        top: -1.2rem; /* Position label above the input */
+        left: 10px;
+    }
+    
+    .address-input {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 10px;
+        color: black;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        padding: 5px 10px;
+        width: 95%;
+        margin-top: 0.2 rem;
+        margin-left: 5px;
+    }
+    
+    .address-input:focus {
+        outline: none;
+        border: 1px solid #bebebe;
+    }
+    
+    .address-input:hover {
+        border: 1px solid #bebebe;
+    }
+    
+
+    .email-address-input:focus, .contact-number-input:focus {
+        outline: none;
+        border: 1px solid #bebebe;
+    }
+    
+    .email-address-input:focus, .contact-number-input:focus {
+        border: 1px solid #bebebe;
+    }
+
+    .first-name-input:focus, .middle-name-input:focus, .last-name-input:focus {
+        outline: none;
+        border: 1px solid #bebebe;
+    }
+    
+    .first-name-input:hover, .middle-name-input:hover, .last-name-input:hover {
+        border: 1px solid #bebebe;
+    }
+
+
+
+    /*             */
+    /* BUTTON PART */
+    /*             */
+
+    .button-container {
+        display: flex;
+        justify-content:right;
+        gap: 1rem; /* Space between buttons */
+        margin-top: 1rem;
+        margin-right: 6.4rem;
+    }
+    
+    .clear-button {
+        background-color: #BC2424;
+        color: white;
+        width: 6rem;
+        height: 40px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.2);
+        border: none;
+        cursor: pointer;
+        font-family: 'Inter Medium', sans-serif;
+    }
+    
+    .save-button {
+        background-color: #004F88;
+        color: white;
+        width: 8rem;
+        height: 40px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.2);
+        border: none;
+        cursor: pointer;
+        font-family: 'Inter Medium', sans-serif;
+    }
+    
+    /* Optional: Hover effect for buttons */
+    .clear-button:hover, .save-button:hover {
+        opacity: 0.9;
+    }
+    

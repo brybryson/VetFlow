@@ -1,0 +1,712 @@
+    /* Sidebar styles */
+    .sidebar {
+        position: fixed;
+        width: 190px; /* Ensure sidebar is not too wide */
+        transition: width 0.3s ease;
+    }
+
+    .sidebar.collapsed {
+        width: 65px; /* Collapsed width */
+    }
+
+    /* Adjust the margin for the content */
+    .content {
+        transition: margin-left 0.3s ease; 
+        margin-left: 190px; /* Space for the sidebar */
+        margin-right: 10px;
+            margin-bottom: 10px;
+        padding: 20px 20px 20px 20px;
+    }
+
+    .sidebar.collapsed + .content {
+        margin-left: 80px; /* Ensure margin is 0 when sidebar is collapsed */
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
+
+    /* Sidebar button and logo styles */
+    .toggle-btn {
+        transition: margin 0.3s ease; /* Smooth transition for margin */
+    }
+
+    .sidebar.collapsed .toggle-btn {
+        margin-bottom: 5px; /* Adjusted spacing when collapsed */
+    }
+
+    /* Sidebar link styles */
+    .sidebar-link {
+        font-size: 13px; /* Regular font size when expanded */
+        font-family: 'Inter Regular', sans-serif;
+    
+        padding: 10px 0px; 
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
+        margin-bottom: 0.5rem;
+        height: 2rem;
+    }
+
+    /* Style for the POS Terminal link without hover effect */
+    .sidebar-link[data-title="Dashboard"] {
+        background-color: var(--olive-green); /* Olive green background */
+        color: white; /* Text color */
+        pointer-events: none; /* Disable hover interaction */
+    }
+
+    /* Hide text when sidebar is collapsed */
+    .sidebar.collapsed .sidebar-link {
+        opacity: 0; /* Makes the text invisible */
+        transition: opacity 0.3s ease;
+    }
+
+    /* Custom hover styles */
+    .custom-hover {
+        transition: background-color 0.3s ease, color 0.3s ease;
+        border-radius: 500px;
+        padding: 5px 10px;
+    }
+
+    .custom-hover:hover {
+        background-color: var(--olive-green); 
+        color: white; 
+    }
+
+    .custom-hover:active {
+        background-color: var(--olive-green); 
+        color: white; 
+    }
+
+    /* Logo styles */
+    .logo {
+        width: 60%; /* Larger logo when sidebar is expanded */
+        transition: width 0.3s ease;
+        margin-bottom: 5px;
+    }
+
+    .sidebar.collapsed .logo {
+        width: 80%; /* Adjusted size for the logo when collapsed */
+    }
+
+    /* Custom spacing class */
+    .margin-bottom {
+        margin-bottom: 1rem; /* Adjust the value as needed */
+    }
+
+    /* Logout Button Styling */
+    .logout-button-container {
+        margin-top: auto; /* Pushes it to the bottom of the sidebar */
+        display: flex;
+        justify-content: center; /* Center-align the logout button */
+        padding-bottom: 1rem; /* Adds spacing from the bottom */
+    }
+
+    .logout {
+        font-weight: bold;
+    }
+
+    .logout-btn {
+        font-family: 'Inter-medium', sans-serif;
+        font-size: 13px;
+        color: var(--medium-dark-green); /* Set text color to medium-dark-green */
+        display: flex;
+        align-items: center;
+        background: transparent;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .logout-btn:hover {
+        color: var(--olive-green); /* Changes text color on hover */
+    }
+
+    .logout-icon {
+        width: 24px; /* Icon size */
+        height: 24px;
+        margin-right: 8px; /* Adds space between icon and text */
+        transition: transform 0.3s ease;
+        
+    }
+
+    /* Hide logout text when sidebar is collapsed */
+    .sidebar.collapsed .logout-text {
+        display: none; /* Hide logout text */
+        
+    }
+
+    .sidebar.collapsed .logout-icon {
+        transform: scale(0.9); /* Slightly scale down icon when sidebar is collapsed */
+        
+    }
+
+    .user-initials {
+        font-size: 10px;
+        font-family: 'Inter Medium', sans-serif;
+    }
+
+    /* Styles for "Eden Santillan" text */
+    .employee-status-info {
+        font-family: 'Inter-medium', sans-serif;
+        font-size: 13px;
+        color: var(--medium-dark-green);
+        border: 1.5px solid; 
+        border-radius: 500px; 
+        padding: 6px 15px;
+        transition: opacity 0.3s ease;
+    }
+
+    .employee-name {
+        font-family: 'Inter Regular', sans-serif;
+    }
+
+    /* Hide "Eden Santillan" text when sidebar is collapsed */
+    .sidebar.collapsed .employee-status-info {
+        opacity: 0; 
+        pointer-events: none; 
+    }
+
+    /* Active status indicator */
+    .active-indicator {
+        position: absolute;
+        top: 1px; /* Position above the "ES" circle */
+        right: -3px; /* Position to the right within the circle border */
+        width: 8.5px; /* Diameter of the indicator circle */
+        height: 8px;
+        background-color: #3C8800; /* Active green */
+        border: 1.5px solid white; /* White border */
+        border-radius: 50%; /* Makes it a circle */
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.1); /* Optional shadow for clarity */
+    }
+
+
+    /* Sidebar and Right Container Shadow */ 
+    .sidebar{
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.08);
+        
+    }
+ 
+ 
+    /* MAIN CONTENT */
+    /* POS TERMINAL Title Styling */
+    /* MAIN CONTENT */
+
+
+    /* New Container for Title and Date */
+    .title-date-container {
+        display: flex; /* Use flexbox to keep title and subtitle on one line */
+        flex-direction: column; /* Stack title and subtitle vertically */
+        align-items: baseline; /* Align items to the bottom */
+        margin-left: 10px; /* Space for left margin */
+    }
+
+    /* POS TERMINAL Title Styling */
+    /* POS TERMINAL Title Styling */
+    .module-title {
+        font-family: 'Inter Bold', sans-serif;
+        font-size: 29px;
+        position: relative;
+    }
+
+    .module-subtitle {
+        font-family: 'Inter Regular', sans-serif;
+        color: #616161;
+        font-size: 14px;
+        margin-top: -4px; /* Add space between title and subtitle */
+    }
+
+    /* Date and Time Styling */
+    .date-time {
+        font-size: 13px;
+        font-family: 'Inter Medium', sans-serif;
+        color: black;
+        margin-left: 20px;
+        font-weight: normal;
+    }
+
+    /* Buttons Container Styling */
+    .buttons-container {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Space between buttons */
+        margin-top: 14px;
+    }
+
+    /* Button Styling */
+    .export-report-button,
+    .date-report {
+        display: flex;
+        align-items: center;
+        font-family: 'Inter Medium', sans-serif;
+        box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.2);
+        font-size: 13px;
+        font-weight: normal;
+        color: white;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 13px;
+        cursor: pointer;
+    }
+
+    /* Button Container */
+.button-container {
+    display: flex;
+    gap: 1rem; /* Space between the buttons */
+    align-items: center; /* Vertically center the buttons */
+}
+
+/* Action Button Styles */
+.action-button {
+     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 2rem;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.20);
+    font-family: 'Inter Regular', sans-serif;
+    font-size: 10px;
+    color: #606060;
+    text-decoration: none; /* Remove underline for links */
+    gap: 5px; /* Space between icon and text */
+    padding: 0.5rem; /* Internal padding for proper alignment */
+    cursor: pointer;
+}
+
+.action-button:hover {
+    background-color:#75A450;
+    color: white;
+}
+
+/* Button Icon */
+.button-icon {
+    height: 1.2rem;
+    width: auto; /* Maintain aspect ratio */
+
+}
+
+/* Brightness on Hover for Icon */
+.action-button:hover .button-icon {
+    filter: brightness(1.5); /* Increase brightness on hover */
+}
+
+/* Brightness on Click for Icon */
+.action-button:active .button-icon {
+    filter: brightness(1.8); /* Increase brightness even more on click */
+}
+
+.notif-badge {
+    position: absolute;
+    top: -5px; /* Adjust for desired positioning */
+    right: -5px; /* Adjust for desired positioning */
+    background-color: #E70000;
+    color: #FFFFFF;
+    font-family: 'Inter Medium', sans-serif;
+    font-size: 10px;
+    width: 15px; /* Circle diameter */
+    height: 15px; /* Circle diameter */
+    border-radius: 50%; /* Makes it a circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    z-index: 1; /* Ensures it appears on top */
+}
+
+/* 
+    .export-report-button {
+        background-color: #004F88;
+        width: 5.8rem; 
+        height: 2.2rem;
+    }
+
+    .date-report {
+        background-color: #C96B00;
+        width: 8.7rem; 
+        height: 2.2rem;
+    }
+
+    .button-icon {
+        width: 18px;
+        height: auto;;
+        margin-right: 0.5rem;
+    } */
+
+
+    /*                              */
+    /* Search Bar Container Styling */
+    /*                              */
+    .search-bar {
+        background-color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.20);
+        border-radius: 30px;
+        padding: 0.3rem;
+        display: flex;
+        align-items: center;
+        width: 25rem;
+        margin-left: 10px ; /* Offset to the right */
+        margin-bottom:0.8rem;
+    }
+
+    /* Adjusted Search Bar Input Styling */
+    .search-input {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 12px;
+        width: 22rem; /* Adjusted for space */
+        max-width: 100%;
+        padding: 0.3rem;
+        margin-left: 10px;
+        border: none;
+        outline: none;
+        color: black;
+    }
+
+    /* Placeholder Styling */
+    .search-input::placeholder {
+        color: #A0AEC0;
+        font-style: normal;
+    }
+
+
+    /* Search Button Styling */
+    .search-button img {
+        width: 1.8rem;
+        height: auto;
+    }
+
+    /* Filter Button Styling */
+    .filter-button {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .filter-button img {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+
+    /* View Archived Text Styling */
+    /* .view-archived-text {
+        font-family: 'Inter Bold', sans-serif;
+        font-size: 14px;
+        color: #036FEE;
+        margin-left: 1.5rem; 
+        cursor: pointer;
+    } */
+
+
+    /* Add User Button Styling */
+    .add-user-button {
+        background-color: #3C8800;
+        color: white;
+        font-family: 'Inter Medium', sans-serif;
+        font-size: 13px;
+        box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.2);
+        padding: 0.3rem 1rem; 
+        width: 7rem;
+        height: 2rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    .add-user-button:hover {
+        background-color: #46a000;
+    }
+
+    .add-icon {
+        width: auto;
+        height: 14px;
+        margin-left: 0.5rem;
+    }
+
+
+
+
+
+    /*                       */
+    /*   USER INFORMATION    */
+    /*                       */
+
+    /* User Information Container Styling */
+    .user-information-container {
+        width: 100%;
+        height: auto;
+        background-color: #F9FAFB;
+        padding: 1rem;
+        margin-left: 0.5rem;
+    }
+
+    .user-label {
+        font-family: 'Inter Medium', sans-serif;
+        font-size: 16px;
+        color: black;
+    }
+
+    .user-number {
+        font-family: 'Inter Medium', sans-serif;
+        font-size: 16px;
+        color: #616161;
+    }
+
+    /* Header Row Styling */
+    .user-labels-row, .user-row {
+        display: grid;
+        grid-template-columns: 0.2fr 2.5fr 1.5fr 1.5fr 1.5fr 0.3fr;
+        align-items: center;
+        background-color: #F9FAFB;
+        /* background-color: #f2f2f2; */
+        padding: 0.5rem;
+        border-radius: 5px;
+        margin-top: 0.5rem;
+    }
+
+    
+
+    /* Checkbox Styling */
+    .user-checkbox {
+        width: 15px;
+        height: 15px;
+        border: 1px solid black;
+        border-radius: 2px;
+        background-color: transparent;
+        appearance: none;
+        cursor: pointer;
+        margin-left: 1.5rem;
+        margin-right: 0.5rem;
+    }
+
+    .user-checkbox:checked {
+        background-color: #343434;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M20.292 5.292a1 1 0 011.416 1.416l-12 12a1 1 0 01-1.416 0l-5-5a1 1 0 111.416-1.416l4.293 4.293 11.293-11.293z'/%3E%3C/svg%3E");
+        background-position: center;
+        background-size: 12px;
+        background-repeat: no-repeat;
+    }
+
+    .archive-icon:hover {
+        filter: brightness(50%);
+        transition: filter 0.3s ease-in-out;
+    }
+
+    /* Label Styling */
+    .label {
+        font-family: 'Inter Medium', sans-serif;
+        font-size: 13px;
+        color: #343434;
+        padding: 0.3rem 1rem;
+        text-align: left;
+    }
+
+    /* Archive and Arrow Buttons */
+    .archive-user-button, .last-active-arrow-button, .options-button {
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .archive-icon, .arrow-icon, .ellipsis-icon {
+        width: auto;
+        height: 1rem;
+    }
+
+    /* User Name Container Styling */
+    .user-name-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .user-photo {
+        width: auto;
+        height: 2.5rem;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    .user-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1rem;
+        margin-left: 2px;
+    }
+
+    .user-full-name {
+        font-family: 'Inter Bold', sans-serif;
+        font-size: 14px;
+        color: black;
+    }
+
+    .user-code {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 11px;
+        color: #616161;
+    }
+
+    /* Role Container Styling */
+    .role-container {
+        display: flex;
+        align-items: center;
+        margin-right: 30px;
+        gap: 0.3rem;
+    }
+
+    /* Separate Role Styles */
+    .role-admin {
+        color: #FE6E6E;
+        background-color: #FFDEDE;
+        font-size: 12px;
+        width: auto;
+        height: auto;
+        padding: 0px 5px;
+        border-radius: 20px;
+        text-align: center;
+        border: 1px solid #FE6E6E;
+    }
+
+    .role-manager {
+        color: #EAAB00;
+        background-color: #FFF7A8;
+        font-size: 12px;
+        width: auto;
+        height: auto;
+        padding: 0px 5px;
+        border-radius: 20px;
+        text-align: center;
+        border: 1px solid #EAAB00;
+    }
+
+    .role-cashier {
+        color: #3C8800;
+        background-color: #DCFFC1;
+        font-size: 12px;
+        width: auto;
+        height: auto;
+        padding: 0px 5px;
+        border-radius: 20px;
+        text-align: center;
+        border: 1px solid #3C8800;
+    }
+
+    .role-stock-controller {
+        color: #004F88;
+        background-color: #C0E5FF;
+        font-size: 12px;
+        width: auto;
+        height: auto;
+        padding: 0px 5px;
+        border-radius: 20px;
+        text-align: center;
+        border: 1px solid #004F88;
+    }
+
+    /* Last Active and Date Added Text Styling */
+    .last-active-date, .date-added {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 13px;
+        color: #343434;
+        text-align: left;
+        margin-left: 0.8rem;
+        line-height: 1.2;
+    }
+
+
+    /*                   */
+    /*   ELLIPSIS ICON   */
+    /*                   */
+
+    .ellipsis-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .options-button:active .ellipsis-icon  {
+        background-color: #EEEEEE;
+        border-radius: 2px; /* Optional: add border radius to match the design */
+        height: 20px;
+    }
+
+    .options-button:hover .ellipsis-icon  {
+        background-color: #EEEEEE;
+        border-radius: 2px; /* Optional: add border radius to match the design */
+        height: 20px;
+    }
+    
+ 
+    /* Styles for the ellipsis icon button */
+    .options-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Menu styling */
+    .options-menu {
+        position: absolute;
+        z-index: 10;
+        width: 150px;
+        padding: 0px 0;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        right: 2.8rem;
+        top: 1rem;
+    }
+
+    .menu-icon {
+        height: 0.8rem;
+        width: auto;
+        margin-right: 8px;
+        display: inline;
+        right: 20px;
+        vertical-align: middle;
+    } 
+    
+    /* .move-to-archive, .view-profile, .edit-details {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 9px;
+    } */
+
+    .options-menu ul li {
+        font-size: 12px;
+        font-family: 'Inter Medium', sans-serif;
+        color: #848484;
+    }
+    
+
+    /* Hide the menu by default */
+    .hidden {
+        display: none;
+    }
+
+    /* Style for menu items */
+    .options-menu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .options-menu li {
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        font-size: 14px;
+        color: #333;
+        transition: background 0.2s ease;
+    }
+
+    .options-menu li:hover {
+        background-color: #f1f1f1;
+        color: #000;
+    }
+
+    .options-menu ul li:hover .menu-icon {
+        filter: brightness(0.5); /* Darkens the icon by reducing brightness */
+    }
+

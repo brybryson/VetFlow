@@ -1,0 +1,753 @@
+    /* Sidebar styles */
+    .sidebar {
+        position: fixed;
+        width: 190px; /* Ensure sidebar is not too wide */
+        transition: width 0.3s ease;
+    }
+
+    .sidebar.collapsed {
+        width: 65px; /* Collapsed width */
+    }
+
+    /* Adjust the margin for the content */
+    .content {
+        transition: margin-left 0.3s ease; 
+        margin-left: 190px; /* Space for the sidebar */
+        margin-right: 10px;
+            margin-bottom: 10px;
+        padding: 20px 20px 20px 20px;
+    }
+
+    .sidebar.collapsed + .content {
+        margin-left: 80px; /* Ensure margin is 0 when sidebar is collapsed */
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
+
+    /* Sidebar button and logo styles */
+    .toggle-btn {
+        transition: margin 0.3s ease; /* Smooth transition for margin */
+    }
+
+    .sidebar.collapsed .toggle-btn {
+        margin-bottom: 5px; /* Adjusted spacing when collapsed */
+    }
+
+    /* Sidebar link styles */
+    .sidebar-link {
+        font-size: 13px; /* Regular font size when expanded */
+        font-family: 'Inter Regular', sans-serif;
+    
+        padding: 10px 0px; 
+        transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
+        margin-bottom: 0.5rem;
+        height: 2rem;
+    }
+
+    /* Style for the POS Terminal link without hover effect */
+    .sidebar-link[data-title="Dashboard"] {
+        background-color: var(--olive-green); /* Olive green background */
+        color: white; /* Text color */
+        pointer-events: none; /* Disable hover interaction */
+    }
+
+    /* Hide text when sidebar is collapsed */
+    .sidebar.collapsed .sidebar-link {
+        opacity: 0; /* Makes the text invisible */
+        transition: opacity 0.3s ease;
+    }
+
+    /* Custom hover styles */
+    .custom-hover {
+        transition: background-color 0.3s ease, color 0.3s ease;
+        border-radius: 500px;
+        padding: 5px 10px;
+    }
+
+    .custom-hover:hover {
+        background-color: var(--olive-green); 
+        color: white; 
+    }
+
+    .custom-hover:active {
+        background-color: var(--olive-green); 
+        color: white; 
+    }
+
+    /* Logo styles */
+    .logo {
+        width: 60%; /* Larger logo when sidebar is expanded */
+        transition: width 0.3s ease;
+        margin-bottom: 5px;
+    }
+
+    .sidebar.collapsed .logo {
+        width: 80%; /* Adjusted size for the logo when collapsed */
+    }
+
+    /* Custom spacing class */
+    .margin-bottom {
+        margin-bottom: 1rem; /* Adjust the value as needed */
+    }
+
+    /* Logout Button Styling */
+    .logout-button-container {
+        margin-top: auto; /* Pushes it to the bottom of the sidebar */
+        display: flex;
+        justify-content: center; /* Center-align the logout button */
+        padding-bottom: 1rem; /* Adds spacing from the bottom */
+    }
+
+    .logout {
+        font-weight: bold;
+    }
+
+    .logout-btn {
+        font-family: 'Inter-medium', sans-serif;
+        font-size: 13px;
+        color: var(--medium-dark-green); /* Set text color to medium-dark-green */
+        display: flex;
+        align-items: center;
+        background: transparent;
+        cursor: pointer;
+        transition: color 0.3s ease;
+    }
+
+    .logout-btn:hover {
+        color: var(--olive-green); /* Changes text color on hover */
+    }
+
+    .logout-icon {
+        width: 24px; /* Icon size */
+        height: 24px;
+        margin-right: 8px; /* Adds space between icon and text */
+        transition: transform 0.3s ease;
+        
+    }
+
+    /* Hide logout text when sidebar is collapsed */
+    .sidebar.collapsed .logout-text {
+        display: none; /* Hide logout text */
+        
+    }
+
+    .sidebar.collapsed .logout-icon {
+        transform: scale(0.9); /* Slightly scale down icon when sidebar is collapsed */
+        
+    }
+
+    .user-initials {
+        font-size: 10px;
+        font-family: 'Inter Medium', sans-serif;
+    }
+
+    /* Styles for "Eden Santillan" text */
+    .employee-status-info {
+        font-family: 'Inter-medium', sans-serif;
+        font-size: 13px;
+        color: var(--medium-dark-green);
+        border: 1.5px solid; 
+        border-radius: 500px; 
+        padding: 6px 15px;
+        transition: opacity 0.3s ease;
+    }
+
+    .employee-name {
+        font-family: 'Inter Regular', sans-serif;
+    }
+
+    /* Hide "Eden Santillan" text when sidebar is collapsed */
+    .sidebar.collapsed .employee-status-info {
+        opacity: 0; 
+        pointer-events: none; 
+    }
+
+    /* Active status indicator */
+    .active-indicator {
+        position: absolute;
+        top: 1px; /* Position above the "ES" circle */
+        right: -3px; /* Position to the right within the circle border */
+        width: 8.5px; /* Diameter of the indicator circle */
+        height: 8px;
+        background-color: #3C8800; /* Active green */
+        border: 1.5px solid white; /* White border */
+        border-radius: 50%; /* Makes it a circle */
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.1); /* Optional shadow for clarity */
+    }
+
+
+    /* Sidebar and Right Container Shadow */ 
+    .sidebar{
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.08);
+        
+    }
+
+ 
+    /* MAIN CONTENT */
+    /* POS TERMINAL Title Styling */
+    /* MAIN CONTENT */
+
+
+    /* New Container for Title and Date */
+    .title-date-container {
+        display: flex; /* Use flexbox to keep title and subtitle on one line */
+        flex-direction: column; /* Stack title and subtitle vertically */
+        align-items: baseline; /* Align items to the bottom */
+        margin-left: 10px; /* Space for left margin */
+    }
+
+
+    /* POS TERMINAL Title Styling */
+    /* POS TERMINAL Title Styling */
+    .module-title {
+        font-family: 'Inter Bold', sans-serif;
+        font-size: 29px;
+        position: relative;
+    }
+
+    .module-subtitle {
+        font-family: 'Inter Regular', sans-serif;
+        color: #616161;
+        font-size: 14px;
+        margin-top: -5px; /* Add space between title and subtitle */
+    }
+
+
+    .back-button-icon {
+        width: auto;
+        height: 2rem;
+        margin-top: -10px;
+        margin-left: 40px;
+        margin-bottom: 0px;
+    }
+    .archive-button {
+        background-color: #FFB0B0;
+        width: 6rem;
+        height: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #BC2424;
+        font-family: 'Inter Bold', sans-serif;
+        font-size: 11px;
+        margin-right: 6.5rem;
+    }
+    
+    .archive-button img {
+        margin-left: 0.5rem;
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    .archive-button:hover {
+        opacity: 0.9;
+    }
+
+
+
+
+
+
+    /* ARCHIVE ACTIVITY CONTAINER */
+    .archive-activity-container {
+        background-color: #FFFFFF;
+        width: 80%;
+        height: 30rem; /* Fixed height for the main container */
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.20);
+        border-radius: 20px;
+        margin: 20px auto;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+        overflow: hidden; /* Prevents content overflow from parent */
+    }
+    
+    /* Scrollable inner container */
+    .outer-archiveee-container {
+        background-color: #F9F9F9;
+        width: 100%;
+        height: calc(100% - 2rem); /* Leaves padding space */
+        overflow-y: auto; /* Enables vertical scrolling */
+        padding: 1rem 2rem; /* Adds spacing inside */
+        box-sizing: border-box;
+    }
+    
+    .time-deleted-label {
+        font-family: 'Inter Medium', sans-serif;
+        font-size: 13px;
+        color: black;
+        margin-bottom: 0.3rem;
+        margin-top: 0.5rem;
+    }
+    
+    /* Archive Activity Row */
+    .archive-activity {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 4rem; /* Fixed height */
+        border-bottom: 1px solid #E0E0E0;
+        padding: 0.5rem 0;
+        position: relative;
+    }
+    
+    .profile-image-activity {
+        height: 2.5rem; /* Fixed size */
+        width: auto; /* Maintain aspect ratio */
+        border-radius: 50%;
+        margin-left: 3.5rem;
+        margin-right: 1rem;
+    }
+    
+    .activity-details {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    
+    .activity-username {
+        font-family: 'Inter Bold', sans-serif;
+        font-size: 11px;
+        color: #343434;
+    }
+    
+    .activity-description {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 11px;
+        color: black;
+    }
+    
+    .activity-time {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 8px;
+        color: #848484;
+    }
+    
+    .activity-date {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 10px;
+        color: #848484;
+        position: absolute;
+        right: 16rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .activity-actions {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        position: absolute;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .delete-btn,
+    .restore-btn {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 11px;
+        border: none;
+        border-radius: 5px;
+        width: 5.5rem; /* Adjusted width to fit icon and text */
+        height: 1.8rem; /* Slightly larger for better alignment */
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.20);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 0 0.5rem;
+    }
+    
+    .delete-btn {
+        background-color: #BC2424;
+    }
+    
+    .restore-btn {
+        background-color: #004F88;
+    }
+    
+    .button-icon {
+        height: 0.8rem;
+        width: auto;
+    }
+    
+/* Initial state (fully visible) */
+/* Archive activity styling */
+/* Archive activity styling */
+
+
+/* Add smooth slide-out animation */
+.slide-out { 
+    transform: translateX(100%); /* Slide to the right */
+    opacity: 0;               
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Prevent horizontal scrollbar from appearing */
+.archive-activity-container {
+    overflow-x: hidden;
+}
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+    /* <!--                                  -->
+    <!-- USER PHOTO INPUT AND GEENRATE ID -->
+    <!--                                  --> */
+    .user-photo-id-container {
+        background-color: #FFFFFF;
+        width: 80%;
+        height: 20%;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.20);
+        border-radius: 20px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0 auto;
+        padding: 2rem;
+        position: relative;
+        margin-bottom: 0rem;
+    }
+    
+    .edit-button-username-id {
+        font-size: 8px;
+        font-family: 'Inter Regular', sans-serif;
+        color: #848484;
+        background-color: white;
+        border: 1px solid #848484;
+        padding: 4px;
+        border-radius: 7px;
+        height: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 4px; /* Space between text and icon */
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+    
+    .edit-icon {
+        width: auto; /* Adjust size as needed */
+        height: 8px;
+    }
+
+    .upload-circle {
+        width: 4rem;
+        height: 4rem;
+        background-color: #c5c5c5;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+        cursor: default; /* Remove pointer as it’s no longer clickable */
+    }
+    
+    .profile-image {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover; /* Ensures the image fills the circle */
+    }
+    
+
+    .new-user-role-container {
+        margin-left:1.5rem;
+        display: flex;
+        flex-direction: column;
+        line-height: 0.4rem;
+    }
+    
+    .new-user-name {
+        font-family: 'Inter Bold', sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 0.8rem;
+    }
+    .role-input-container {
+        display: flex;
+        align-items: center;
+    }
+    
+    /* custom-buttons.css */
+.role-indicator {
+
+    padding: 0.15rem 0rem;
+    margin-right: 0.5rem;
+    border-radius: 5px;
+    font-size: 11px; /* Adjust font size as needed */
+    font-family: 'Inter Regular', sans-serif;
+    color: #343434;
+}
+
+.info-text {
+    font-family: 'Inter Regular', sans-serif;
+    font-size: 12px;
+    color: black;
+    line-height: 0.5rem; /* Adjust line height for multi-line text */
+    display: inline-block;
+    margin-top: 1.2rem; /* Same top margin as previous inputs */
+    margin-left: 0px;
+    width: 80%; /* Match previous input width */
+}
+
+.address-field .info-text {
+    width: 95%; /* Match address input width */
+    display: block; /* Ensure text wraps to a new line if necessary */
+}
+
+    
+    /* Container styling */
+.employee-id-container {
+    position: absolute;
+    top: 2.1rem;
+    right: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 60px;
+}
+
+/* Styling for the "Employee ID" label */
+.employee-id-display {
+    font-family: 'Inter Medium', sans-serif;
+    color: #848484;
+    font-size: 10px;
+    margin-bottom: 0.3rem;
+}
+
+/* Styling for the actual Employee ID */
+.generated-employee-id {
+    font-family: 'Inter Medium', sans-serif;
+    color: black;
+    font-size: 10px;
+}
+
+
+
+.second-container-forms {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Ensures both containers have the same height */
+    gap: 1rem; /* Reduced gap between the two containers */
+    padding: 2rem;
+    margin-top: -20px;
+}
+    /*                           */
+    /* PERSONAL INFORMATION PART */
+    /*                           */
+    /* .personal-info-container {
+        background-color: #FFFFFF;
+        width: 40%;
+        height: 53%;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.20);
+        border-radius: 20px;
+        padding: 1.5rem;
+        margin: 0 auto;
+        position: relative;
+        margin-left: 0rem; 
+
+    } */
+
+    .personal-info-container,
+.recent-activity-container {
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.20);
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.personal-info-container {
+    width: 50%;
+    height: 80%; /* Allows the container to stretch fully within the flex container */
+}
+
+
+    
+    .edit-button-personal-info {
+        font-size: 8px;
+        font-family: 'Inter Regular', sans-serif;
+        color: #848484;
+        background-color: white;
+        border: 1px solid #848484;
+        padding: 4px;
+        border-radius: 7px;
+        height: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 4px; /* Space between text and icon */
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+    
+    .edit-icon {
+        width: auto;
+        height: 8px;
+    }
+    
+   
+
+    .personal-info-title {
+        font-family: 'Inter Bold', sans-serif;
+        font-size: 13px;
+        color: #000000;
+        margin: 0;
+        padding-bottom: 0.1rem;
+    }
+    
+    .personal-info-forms {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 0.5rem;
+    }
+    
+    .top-forms {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        height: 100%;
+    }
+    
+    .first-name-field, .middle-name-field, .last-name-field {
+        flex: 1;
+        position: relative;
+    }
+    
+    .name-label {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 11px;
+        color: #848484;
+        position: absolute;
+        top: 0;
+        left: 0px;
+    }
+    
+    .first-name-input, .middle-name-input, .last-name-input {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 10px;
+        color: black;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        padding: 5px 10px;
+        width: 80%;
+        margin-top: 1.2rem;
+        margin-left: 5px;
+    }
+    
+    .bottom-forms {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        height: 100%;
+    }
+    
+    .email-address-field, .blank-field, .contact-number-field {
+        flex: 1;
+        position: relative;
+    }
+    
+    .email-address-label, .contact-number-label {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 11px;
+        color: #848484;
+        position: absolute;
+        top: 0;
+        left: 0px;
+    }
+    
+    .email-address-input, .contact-number-input {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 10px;
+        color: black;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        padding: 5px 10px;
+        width: 80%;
+        margin-top: 1.2rem;
+        margin-left: 5px;
+    }
+    
+    /* ADDRESS */
+    .address-title {
+        font-family: 'Inter Bold', sans-serif;
+        font-size: 13px;
+        color: #000000;
+        margin-bottom: 0px;
+     
+
+    }
+    
+    .address-field {
+        position: relative;
+        width: 100%;
+        margin-top: 0.5rem;
+        bottom: 30px;
+    }
+    
+    .address-label {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 11px;
+        color: #848484;
+        position: absolute;
+        line-height: 10px;
+        margin-top: 1rem;
+
+
+    }
+    
+    .address-input {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 10px;
+        color: black;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        padding: 5px 10px;
+        width: 95%;
+        line-height: 10px;
+        margin-bottom: 10rem;
+        margin-left: 5px;
+
+    }
+
+    .info-text-address {
+        font-family: 'Inter Regular', sans-serif;
+        font-size: 12px;
+        color: black;
+        line-height: 0.8rem; /* Adjust line height for multi-line text */
+        display: inline-block;
+        margin-top: 2rem; /* Same top margin as previous inputs */
+        margin-left: 0px;
+        width: 80%; /* Match previous input width */
+    }
+
+
+ 
