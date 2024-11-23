@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shepherd Animal Clinic - Stock Controller</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/stock-controller/stock_item-stocks.css"> 
+    <link rel="stylesheet" href="/graphics/fonts/fonts.css">
+    <link rel="stylesheet" href="/graphics/color/colors.css">
+    <link rel="stylesheet" href="/dist/output.css">
+</head>
+<body class="flex" style="background-color: #F9FAFB;">
+
+    <!-- Sidebar Navigation -->
+    <div id="sidebar" class="sidebar text-black h-screen p-4 flex flex-col justify-between w-64 bg-white">
+        <!-- Top section for button and logo -->
+        <div>
+            <div class="flex justify-end mb-4 relative">
+                <button class="toggle-btn bg-olive-green text-white w-8 h-8 rounded hover:bg-green-700" onclick="toggleSidebar()">☰</button>
+            </div>
+            <div class="flex justify-center">
+                <img src="/graphics/pictures/Shepherd_Animal_Clinic_Logo.png" alt="Clinic Logo" class="logo transition-all duration-300">
+            </div>
+            <div class="nav-links mt-5">
+                <a href="/html/stock-controller/stock_landing-page.html" data-title="Dashboard" class="sidebar-link custom-hover text-black block  text-center ">Dashboard</a>
+                <a href="#/html/stock-controller/stock_item-stocks.html" data-title="Item_Stocks" class="sidebar-link custom-hover text-black block  text-center ">Item Stocks</a>
+                <a href="#/html/stock-controller/stocks_reports.html" data-title="Reports" class="sidebar-link custom-hover text-black block text-center ">Reports</a>
+                
+            </div>
+            
+        </div>
+
+        <div class="logout-button-container flex flex-col justify-center items-center mt-auto">
+            <span class="employee-status-info flex items-center text-center mt-3 mb-3 border-medium-dark-green relative">
+                <span class="user-initials flex items-center justify-center rounded-full text-black w-6 h-6 mr-2 relative" style="background-color: #FFD3D3;">
+                    HP
+                    <span class="active-indicator absolute"></span>
+                </span>
+                <span class="employee-name">Hans Lecoso</span>
+            </span>
+            <a href="/html/login-tailwind.html" class="sidebar-link logout custom-hover flex items-center justify-center text-medium-dark-green block py-2 px-4 text-center">
+                <img src="/graphics/icons/Logout.png" alt="Logout Icon" class="w-5 h-5 mr-2">
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div id="mainContent" class="content flex-1 p-8 bg-gray-50 transition-all duration-300">
+
+        <!--            -->
+        <!-- Title Area -->
+         <!--            -->
+         <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center">
+                <div class="title-date-container">
+                    <h1 class="module-title">Item Stocks</h1>
+                    <!-- <p class="module-subtitle">Manage your team members and their account here</p> -->
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="/html/admin/admin_activity-logs.html" class="action-button">
+                    <img src="/graphics/icons/activity_logs.png" alt="Activity Logs Icon" class="button-icon">
+                    Activity Logs
+                    <div class="notif-badge" id="notif-activity-logs">4</div>
+                </a>
+                <a href="/html/admin/admin_archive-page.html" class="action-button">
+                    <img src="/graphics/icons/admin_archive_icon.png" alt="Archive Icon" class="button-icon">
+                    Archive
+                    <div class="notif-badge" id="notif-archive">2</div>
+                </a>
+            </div>            
+        </div>
+        
+
+
+
+       <!--                                                              -->
+       <!-- Search Bar Container, View Archived Text, and Add User Button -->
+       <!--                                                              -->
+
+       <div class="flex items-center justify-between mt-1">
+        <!-- Left-aligned elements: Search bar and View Archived Here -->
+        <div class="flex items-center">
+            <div class="search-bar flex items-center">
+                <input type="text" placeholder="Search here" class="search-input" />
+                <button class="search-button ml-2">
+                    <img src="/graphics/icons/search-button.png" alt="Search Button" class="w-7 h-7">
+                </button>
+
+            </div>
+      
+            
+        </div>
+
+        <!-- Right-aligned Add User button -->
+        <div>
+            <a href="#/html/admin/admin_add-user.html" class="add-new-item-button flex items-center">
+                Add New Item
+                <img src="/graphics/icons/add-icon.png" alt="Add Icon" class="ml-1 add-icon">
+            </a>
+        </div>
+        
+    </div>
+
+        <!--                      -->
+        <!-- Table container part -->
+        <!--                      -->
+
+        <div class="items-table-container">
+            <div class="items-label">Items</div>
+            <!-- <div class="scrollable-content"> -->
+            <div class="items-label-row grid">
+                <span class="label item-name-label">ITEM NAME</span>
+                <span class="label sku-label">SKU</span>
+                <span class="label discount-label">
+                    DISCOUNT
+                    <button class="discount-sort-button">
+                        <img src="/graphics/icons/sorting-button.png" alt="Sort" class="sort-icon">
+                    </button>
+                </span>
+                <span class="label vendor-label">VENDOR</span>
+                <span class="label price-label">
+                    PRICE
+                    <button class="price-sort-button">
+                        <img src="/graphics/icons/sorting-button.png" alt="Sort" class="sort-icon">
+                    </button>
+                </span>                
+                <span class="label stocks-label">
+                    STOCKS
+                    <button class="stocks-sort-button">
+                        <img src="/graphics/icons/sorting-button.png" alt="Sort" class="sort-icon">
+                    </button>
+                </span>                
+                <span class="label status-label">
+                    STATUS
+                    <button class="status-sort-button">
+                        <img src="/graphics/icons/sorting-button.png" alt="Sort" class="sort-icon">
+                    </button>
+                </span>
+                <span class="label empty-label"></span>
+            </div>
+        
+
+            
+            <div class="item-row grid" id="row-1">
+                <!-- Item Name and Type -->
+                <div class="item-name-type">
+                    <img class="item-picture" src="/graphics/pictures/floof-pets-multivitamins.png" alt="Item Image" />
+                    <div class="item-name-type-text">
+                        <span class="item-label-name">Floof Pets Cat Multivitamins</span>
+                        <span class="item-category">Vitamins</span>
+                    </div>
+                </div>
+            
+                <!-- Item Details -->
+                <span class="label sku-number">CMV85106</span>
+                <span class="label discount-amount">0%</span>
+                <span class="label vendor-info">Pet Supplies Co.</span>
+                <span class="label price-amount">₱155.00</span>
+            
+                <!-- Stock Information -->
+                <div class="stock-row">
+                    <span class="stock-amount">24</span>
+                    <span class="low-stock-icon">⚠️</span>
+                </div>
+            
+                <!-- Status -->
+                <div class="status-container">
+                    <span class="label status">Low Stock</span>
+                </div>
+            
+                <!-- Options Menu -->
+                <span class="label empty-column">
+                    <button class="ellipsis-button" onclick="toggleOptionsMenu(event)">
+                        <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon" />
+                    </button>
+            
+                    <div class="options-menu hidden absolute bg-white border border-gray-300 shadow-lg mt-2 p-2 w-32">
+                        <ul>
+                            <!-- Visibility Toggle -->
+                            <li class="visible-button p-2 hover:bg-gray-200 cursor-pointer">
+                                <div class="flex items-center toggle-visibility-btn" data-row-id="row-1" onclick="toggleRowVisibility(this)">
+                                    <div class="toggle-switch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <span class="toggle-label">Visible</span>
+                                </div>
+                            </li>
+            
+                            <!-- Edit Details -->
+                            <li class="edit-details p-2 hover:bg-gray-200 cursor-pointer">
+                                <a href="#/html/admin/admin_edit-user-Trish.html" class="flex items-center">
+                                    <img src="/graphics/icons/edit-details.png" alt="Edit Details Icon" class="menu-icon" />
+                                    Edit Details
+                                </a>
+                            </li>
+            
+                            <!-- Archive -->
+                            <li class="move-to-archive p-2 hover:bg-gray-200 cursor-pointer">
+                                <a href="#/html/archive.html" class="flex items-center">
+                                    <img src="/graphics/icons/move-to-archive-3.png" alt="Archive Icon" class="menu-icon" />
+                                    Archive
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </span>
+            </div>
+            
+            
+            
+              
+
+
+
+            <div class="item-row grid" id="row-2">
+                <div class="item-name-type">
+                    <img class="item-picture" src="/graphics/pictures/papi-mvp.png" alt="Item Image">
+                    <div class="item-name-type-text">
+                        <span class="item-label-name">Papi MVP</span>
+                        <span class="item-category">Vitamins</span>
+                    </div>
+                </div>
+                <span class="label sku-number">PP05641</span>
+                <span class="label discount-amount">0%</span>
+                <span class="label vendor-info">TRPQ785660</span>
+                <span class="label price-amount">₱190.00</span>
+                <div class="stock-row">
+                    <span class="stock-amount">20</span>
+                    <span class="low-stock-icon">⚠️</span>
+                </div>
+                <div class="status-container">
+                    <span class="label status">Low Stock</span>
+                </div>
+                <span class="label empty-column">
+                    <button class="ellipsis-button" onclick="toggleOptionsMenu(event)">
+                        <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon" />
+                    </button>
+                
+                    <!-- Options Menu -->
+                    <div class="options-menu hidden">
+                        <ul>
+                            <li class="visible-button p-2 hover:bg-gray-200 cursor-pointer">
+                                <div class="flex items-center toggle-visibility-btn" data-row-id="row-2" onclick="toggleRowVisibility(this)">
+                                    <div class="toggle-switch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <span class="toggle-label">Visible</span>
+                                </div>
+                            </li>
+                            <li class="edit-details p-2 hover:bg-gray-200 cursor-pointer">
+                                <a href="#/html/admin/admin_edit-user-Trish.html" class="flex items-center">
+                                    <img src="/graphics/icons/edit-details.png" alt="Edit Details Icon" class="menu-icon" />
+                                    Edit Details
+                                </a>
+                            </li>
+                            <li class="move-to-archive p-2 hover:bg-gray-200 cursor-pointer">
+                                <a href="#/html/archive.html" class="flex items-center">
+                                    <img src="/graphics/icons/move-to-archive-3.png" alt="Archive Icon" class="menu-icon" />
+                                    Archive
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </span>
+            </div>
+            
+
+            <div class="item-row grid" id="row-3">
+                <div class="item-name-type">
+                    <img class="item-picture" src="/graphics/pictures/Himalaya-Nefrotec-DS.png" alt="Item Image">
+                    <div class="item-name-type-text">
+                        <span class="item-label-name">Himalaya Nefrotec DS</span>
+                        <span class="item-category">Tablet</span>
+                    </div>
+                </div>
+                <span class="label sku-number">PB90084</span>
+                <span class="label discount-amount">0%</span>
+                <span class="label vendor-info">KLDSN02451</span>
+                <span class="label price-amount">₱225.00</span>
+                <div class="stock-row">
+                    <span class="stock-amount">28</span>
+                    <span class="low-stock-icon">⚠️</span>
+                </div>
+                <div class="status-container">
+                    <span class="label status">Low Stock</span>
+                </div>
+                <span class="label empty-column">
+                    <button class="ellipsis-button" onclick="toggleOptionsMenu(event)">
+                        <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon" />
+                    </button>
+                
+                    <!-- Options Menu -->
+                    <div class="options-menu hidden">
+                        <ul>
+                            <li class="visible-button p-2 hover:bg-gray-200 cursor-pointer">
+                                <div class="flex items-center toggle-visibility-btn" data-row-id="row-2" onclick="toggleRowVisibility(this)">
+                                    <div class="toggle-switch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <span class="toggle-label">Visible</span>
+                                </div>
+                            </li>
+                            <li class="edit-details p-2 hover:bg-gray-200 cursor-pointer">
+                                <a href="#/html/admin/admin_edit-user-Trish.html" class="flex items-center">
+                                    <img src="/graphics/icons/edit-details.png" alt="Edit Details Icon" class="menu-icon" />
+                                    Edit Details
+                                </a>
+                            </li>
+                            <li class="move-to-archive p-2 hover:bg-gray-200 cursor-pointer">
+                                <a href="#/html/archive.html" class="flex items-center">
+                                    <img src="/graphics/icons/move-to-archive-3.png" alt="Archive Icon" class="menu-icon" />
+                                    Archive
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </span>
+                
+            </div>
+
+
+
+            
+            <div class="item-row grid" id="row-4">
+                <div class="item-name-type">
+                    <img class="item-picture" src="/graphics/pictures/Monodex-D-Glucose-Monohydrate.png" alt="Item Image">
+                    <div class="item-name-type-text">
+                        <span class="item-label-name">Monodex D-Glucose Monohydrate</span>
+                        <span class="item-category">Supplement</span>
+                    </div>
+                </div>
+                <span class="label sku-number">S98511</span>
+                <span class="label discount-amount">0%</span>
+                <span class="label vendor-info">ZXCRS4548</span>
+                <span class="label price-amount">₱95.00</span>
+                <div class="stock-row">
+                    <span class="stock-amount">41</span>
+                </div>
+                <div class="status-container">
+                    <span class="label status"></span>
+                </div>
+                <span class="label empty-column">
+                    <button class="ellipsis-button" onclick="toggleOptionsMenu(event)">
+                        <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon" />
+                    </button>
+                
+                    <!-- Options Menu -->
+                    <div class="options-menu hidden">
+                        <ul>
+                            <li class="visible-button p-2 hover:bg-gray-200 cursor-pointer">
+                                <div class="flex items-center toggle-visibility-btn" data-row-id="row-4" onclick="toggleRowVisibility(this)">
+                                    <div class="toggle-switch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <span class="toggle-label">Visible</span>
+                                </div>
+                            </li>
+                            <li class="edit-details p-2 hover:bg-gray-200 cursor-pointer">
+                                <a href="#/html/admin/admin_edit-user-Trish.html" class="flex items-center">
+                                    <img src="/graphics/icons/edit-details.png" alt="Edit Details Icon" class="menu-icon" />
+                                    Edit Details
+                                </a>
+                            </li>
+                            <li class="move-to-archive p-2 hover:bg-gray-200 cursor-pointer">
+                                <a href="#/html/archive.html" class="flex items-center">
+                                    <img src="/graphics/icons/move-to-archive-3.png" alt="Archive Icon" class="menu-icon" />
+                                    Archive
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </span>
+                
+            </div>
+
+
+            <div class="item-row grid" id="row-5">
+                <div class="item-name-type">
+                    <img class="item-picture" src="/graphics/pictures/Bengal-Pro-Immune-Cat-Treat.png" alt="Item Image">
+                    <div class="item-name-type-text">
+                        <span class="item-label-name">Bengal Pro Immune Cat Treat</span>
+                        <span class="item-category">Food</span>
+                    </div>
+                </div>
+                <span class="label sku-number">PP30181</span>
+                <span class="label discount-amount">0%</span>
+                <span class="label vendor-info">NHGF02415</span>
+                <span class="label price-amount">₱359.00</span>
+                <div class="stock-row">
+                    <span class="stock-amount">37</span>
+                </div>
+                <div class="status-container">
+                    <span class="label status"></span>
+                </div>
+                <span class="label empty-column">
+                    <button class="ellipsis-button" onclick="toggleOptionsMenu(event)">
+                        <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon" />
+                    </button>
+                
+                    <!-- Options Menu -->
+                    <div class="options-menu hidden">
+                        <ul>
+                            <li class="visible-button p-2 hover:bg-gray-200 cursor-pointer">
+                                <div class="flex items-center toggle-visibility-btn" data-row-id="row-5" onclick="toggleRowVisibility(this)">
+                                    <div class="toggle-switch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <span class="toggle-label">Visible</span>
+                                </div>
+                            </li>
+                            <li class="edit-details p-2 hover:bg-gray-200 cursor-pointer">
+                                <a href="#/html/admin/admin_edit-user-Trish.html" class="flex items-center">
+                                    <img src="/graphics/icons/edit-details.png" alt="Edit Details Icon" class="menu-icon" />
+                                    Edit Details
+                                </a>
+                            </li>
+                            <li class="move-to-archive p-2 hover:bg-gray-200 cursor-pointer">
+                                <a href="#/html/archive.html" class="flex items-center">
+                                    <img src="/graphics/icons/move-to-archive-3.png" alt="Archive Icon" class="menu-icon" />
+                                    Archive
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </span>
+                
+                
+            </div>
+
+            <div class="item-row grid" id="row-6">
+                <div class="item-name-type">
+                    <img class="item-picture" src="/graphics/pictures/Histamox-Syrup.png" alt="Item Image">
+                    <div class="item-name-type-text">
+                        <span class="item-label-name">Histamox Syrup </span>
+                        <span class="item-category">Syrup</span>
+                    </div>
+                </div>
+                <span class="label sku-number">VITA21</span>
+                <span class="label discount-amount">0%</span>
+                <span class="label vendor-info">TYHK33449</span>
+                <span class="label price-amount">₱173.00</span>
+                <div class="stock-row">
+                    <span class="stock-amount">48</span>
+                </div>
+                <div class="status-container">
+                    <span class="label status"></span>
+                </div>
+                <span class="label empty-column">
+                    <button class="ellipsis-button" onclick="toggleOptionsMenu(event)">
+                        <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon" />
+                    </button>
+                
+                    <!-- Options Menu -->
+                    <div class="options-menu hidden">
+                        <ul>
+                            <li class="visible-button p-2 hover:bg-gray-200 cursor-pointer">
+                                <div class="flex items-center toggle-visibility-btn" data-row-id="row-6" onclick="toggleRowVisibility(this)">
+                                    <div class="toggle-switch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <span class="toggle-label">Visible</span>
+                                </div>
+                            </li>
+                            <li class="edit-details p-2 hover:bg-gray-200 cursor-pointer">
+                                <a href="#/html/admin/admin_edit-user-Trish.html" class="flex items-center">
+                                    <img src="/graphics/icons/edit-details.png" alt="Edit Details Icon" class="menu-icon" />
+                                    Edit Details
+                                </a>
+                            </li>
+                            <li class="move-to-archive p-2 hover:bg-gray-200 cursor-pointer">
+                                <a href="#/html/archive.html" class="flex items-center">
+                                    <img src="/graphics/icons/move-to-archive-3.png" alt="Archive Icon" class="menu-icon" />
+                                    Archive
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </span>
+                
+                
+            </div>
+
+            <div class="item-row grid" id="row-7">
+                <div class="item-name-type">
+                    <img class="item-picture" src="/graphics/pictures/Bromhexine-Pulmo-Best.png" alt="Item Image">
+                    <div class="item-name-type-text">
+                        <span class="item-label-name">Bromhexine Pulmo Best</span>
+                        <span class="item-category">Syrup</span>
+                    </div>
+                </div>
+                <span class="label sku-number">BH10577</span>
+                <span class="label discount-amount">2%</span>
+                <span class="label vendor-info">SDAKL12484</span>
+                <span class="label price-amount">₱173.00</span>
+                <div class="stock-row">
+                    <span class="stock-amount">26</span>
+                    <span class="low-stock-icon">⚠️</span>
+                </div>
+                <div class="status-container">
+                    <span class="label status">Low Stock</span>
+                </div>
+                <span class="label empty-column">
+                    <button class="ellipsis-button" onclick="toggleOptionsMenu(event)">
+                        <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon" />
+                    </button>
+                
+                    <!-- Options Menu -->
+                    <div class="options-menu hidden">
+                        <ul>
+                            <li class="visible-button p-2 hover:bg-gray-200 cursor-pointer">
+                                <div class="flex items-center toggle-visibility-btn" data-row-id="row-7" onclick="toggleRowVisibility(this)">
+                                    <div class="toggle-switch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <span class="toggle-label">Visible</span>
+                                </div>
+                            </li>
+                            <li class="edit-details p-2 hover:bg-gray-200 cursor-pointer">
+                                <a href="#/html/admin/admin_edit-user-Trish.html" class="flex items-center">
+                                    <img src="/graphics/icons/edit-details.png" alt="Edit Details Icon" class="menu-icon" />
+                                    Edit Details
+                                </a>
+                            </li>
+                            <li class="move-to-archive p-2 hover:bg-gray-200 cursor-pointer">
+                                <a href="#/html/archive.html" class="flex items-center">
+                                    <img src="/graphics/icons/move-to-archive-3.png" alt="Archive Icon" class="menu-icon" />
+                                    Archive
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </span>
+                
+            </div>
+
+            <div class="item-row grid" id="row-8">
+                <div class="item-name-type">
+                    <img class="item-picture" src="/graphics/pictures/Tolfenamic-Acid.png" alt="Item Image">
+                    <div class="item-name-type-text">
+                        <span class="item-label-name">Tolfenamic Acid</span>
+                        <span class="item-category">Syrup</span>
+                    </div>
+                </div>
+                <span class="label sku-number">TA1271</span>
+                <span class="label discount-amount">12%</span>
+                <span class="label vendor-info">MGHJ39678</span>
+                <span class="label price-amount">₱299.00</span>
+                <div class="stock-row">
+                    <span class="stock-amount">36</span>
+                </div>
+                <div class="status-container">
+                    <span class="label status"></span>
+                </div>
+                <span class="label empty-column">
+                    <button class="ellipsis-button" onclick="toggleOptionsMenu(event)">
+                        <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon" />
+                    </button>
+                
+                    <!-- Options Menu -->
+                    <div class="options-menu hidden">
+                        <ul>
+                            <li class="visible-button p-2 hover:bg-gray-200 cursor-pointer">
+                                <div class="flex items-center toggle-visibility-btn" data-row-id="row-8" onclick="toggleRowVisibility(this)">
+                                    <div class="toggle-switch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <span class="toggle-label">Visible</span>
+                                </div>
+                            </li>
+                            <li class="edit-details p-2 hover:bg-gray-200 cursor-pointer">
+                                <a href="#/html/admin/admin_edit-user-Trish.html" class="flex items-center">
+                                    <img src="/graphics/icons/edit-details.png" alt="Edit Details Icon" class="menu-icon" />
+                                    Edit Details
+                                </a>
+                            </li>
+                            <li class="move-to-archive p-2 hover:bg-gray-200 cursor-pointer">
+                                <a href="#/html/archive.html" class="flex items-center">
+                                    <img src="/graphics/icons/move-to-archive-3.png" alt="Archive Icon" class="menu-icon" />
+                                    Archive
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </span>
+                
+            </div>
+            <!-- </div> -->
+            <div id="noResultsMessage" class="text-center text-gray-500 mt-4 hidden" style="font-family:'Inter Medium', sans-serif;">
+                Nothing found matching your search.
+            </div>
+        </div>
+        
+        
+        
+
+    </div>
+
+   
+
+    <!-- JavaScript links -->
+    <script src="/js/stock-controller/stock_item-stocks.js"></script> 
+</body>
+</html>
