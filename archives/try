@@ -1,0 +1,259 @@
+ <!-- User Information Container Table -->
+        <div class="user-information-container mt-4">
+            <p class="user-label">All users <span class="user-number">4</span></p>
+            <div class="user-labels-row grid">
+                <input type="checkbox" id="selectAllCheckbox" class="user-checkbox" />
+                <span class="label user-name-label">User Name
+                    <button class="archive-user-button ml-1">
+                        <img src="/graphics/icons/move-to-archive-labels.png" alt="Archive User" class="archive-icon">
+                    </button>
+                </span>
+                <span class="label role-label">Role</span>
+                <span class="label last-active-label">Last Active
+                    <button class="last-active-arrow-button ml-2">
+                        <img src="/graphics/icons/archive-down-button.png" alt="Arrow Down" class="arrow-icon">
+                    </button>
+                </span>
+                <span class="label date-added-label">Date Added</span>
+                <span class="label empty-label"></span>
+            </div>
+
+            <!-- User Row -->
+            <div class="user-row grid relative">
+                <input type="checkbox" class="user-checkbox" />
+                <div class="user-name-container">
+                    <img src="/graphics/pictures/trish-mercado.png" alt="Trish Mercado" class="user-photo">
+                    <div class="user-info">
+                        <p class="user-full-name">Trish Mercado</p>
+                        <p class="user-code">T01-ADM1009</p>
+                    </div>
+                </div>
+                <div class="role-container">
+                    <span class="role-admin">Admin</span>
+                    <span class="role-manager">Manager</span>
+                </div>
+                <span class="last-active-date">Sept 26, 2024</span>
+                <span class="date-added">Jan 30, 2021</span>
+            
+               
+                <button class="options-button" onclick="toggleOptionsMenu(event)">
+                    <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon">
+                </button>
+          
+                <div class="options-menu hidden absolute bg-white border border-gray-300 shadow-lg mt-2 p-2 w-32">
+                    <ul>
+                        <li class="view-profile p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/admin_edit-user-Trish.html" class="flex items-center">
+                                <img src="/graphics/icons/view-profile.png" alt="View Profile Icon" class="menu-icon"> View Profile
+                            </a>
+                        </li>
+                        <li class="edit-details p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/admin_edit-user-Trish.html" class="flex items-center">
+                                <img src="/graphics/icons/edit-details.png" alt="Edit Details Icon" class="menu-icon"> Edit Details
+                            </a>
+                        </li>
+                        <li class="move-to-archive p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="#/html/archive.html" class="flex items-center">
+                                <img src="/graphics/icons/move-to-archive-3.png" alt="Archive Icon" class="menu-icon"> Archive
+                            </a>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+            
+
+             <!-- User Row -->
+             <div class="user-row grid relative">
+                <input type="checkbox" class="user-checkbox" />
+                <div class="user-name-container">
+                    <img src="/graphics/pictures/eden-santillan.png" alt="Trish Mercado" class="user-photo">
+                    <div class="user-info">
+                        <p class="user-full-name">Eden Santillan</p>
+                        <p class="user-code">T02-CAS2149</p>
+                    </div>
+                </div>
+                <div class="role-container">
+                    <span class="role-cashier">Cashier</span>
+                </div>
+                <span class="last-active-date">Sept 27, 2024</span>
+                <span class="date-added">Feb 21, 2021</span>
+
+                <!-- Ellipsis Button with Options Menu -->
+                <button class="options-button" onclick="toggleOptionsMenu(event)">
+                    <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon">
+                </button>
+                <!-- Options Menu -->
+                <div class="options-menu hidden absolute bg-white border border-gray-300 shadow-lg mt-2 p-2 w-32">
+                    <ul>
+                        <li class="view-profile p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/" class="flex items-center">
+                                <img src="/graphics/icons/view-profile.png" alt="View Profile Icon" class="menu-icon"> View Profile
+                            </a>
+                        </li>
+                        <li class="edit-details p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/admin_edit-user-Eden.html" class="flex items-center">
+                                <img src="/graphics/icons/edit-details.png" alt="Edit Details Icon" class="menu-icon"> Edit Details
+                            </a>
+                        </li>
+                        <li class="move-to-archive p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/archive.html" class="flex items-center">
+                                <img src="/graphics/icons/move-to-archive-3.png" alt="Archive Icon" class="menu-icon"> Archive
+                            </a>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+
+            <!-- User Row -->
+            <div class="user-row grid relative">
+                <input type="checkbox" class="user-checkbox" />
+                <div class="user-name-container">
+                    <img src="/graphics/pictures/matthew-boronggo.png" alt="Trish Mercado" class="user-photo">
+                    <div class="user-info">
+                        <p class="user-full-name">Matthew Boronggo</p>
+                        <p class="user-code">T03-STC45319</p>
+                    </div>
+                </div>
+                <div class="role-container">
+                    <span class="role-stock-controller">Stock Controller</span>
+                </div>
+                <span class="last-active-date">Sept 26, 2024</span>
+                <span class="date-added">Nov 14, 2021</span>
+
+                <!-- Ellipsis Button with Options Menu -->
+                <button class="options-button" onclick="toggleOptionsMenu(event)">
+                    <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon">
+                </button>
+                <!-- Options Menu -->
+                <div class="options-menu hidden absolute bg-white border border-gray-300 shadow-lg mt-2 p-2 w-32">
+                    <ul>
+                        <li class="view-profile p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/admin_edit-user-Matthew.html" class="flex items-center">
+                                <img src="/graphics/icons/view-profile.png" alt="View Profile Icon" class="menu-icon"> View Profile
+                            </a>
+                        </li>
+                        <li class="edit-details p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin_edit-user-Matthew.html" class="flex items-center">
+                                <img src="/graphics/icons/edit-details.png" alt="Edit Details Icon" class="menu-icon"> Edit Details
+                            </a>
+                        </li>
+                        <li class="move-to-archive p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/archive.html" class="flex items-center">
+                                <img src="/graphics/icons/move-to-archive-3.png" alt="Archive Icon" class="menu-icon"> Archive
+                            </a>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+
+            <!-- User Row -->
+            <div class="user-row grid relative">
+                <input type="checkbox" class="user-checkbox" />
+                <div class="user-name-container">
+                    <img src="/graphics/pictures/hans-lecoso.png" alt="Trish Mercado" class="user-photo">
+                    <div class="user-info">
+                        <p class="user-full-name">Hans Lecoso</p>
+                        <p class="user-code">T04-STC45468</p>
+                    </div>
+                </div>
+                <div class="role-container">
+                    <span class="role-stock-controller">Stock Controller</span>
+                </div>
+                <span class="last-active-date">Sept 27, 2024</span>
+                <span class="date-added">Nov 27, 2021</span>
+
+                <!-- Ellipsis Button with Options Menu -->
+                <button class="options-button" onclick="toggleOptionsMenu(event)">
+                    <img src="/graphics/icons/3-vertical-dots.png" alt="Options" class="ellipsis-icon">
+                </button>
+                <!-- Options Menu -->
+                <div class="options-menu hidden absolute bg-white border border-gray-300 shadow-lg mt-2 p-2 w-32">
+                    <ul>
+                        <li class="view-profile p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/admin_edit-user-Hans.html" class="flex items-center">
+                                <img src="/graphics/icons/view-profile.png" alt="View Profile Icon" class="menu-icon"> View Profile
+                            </a>
+                        </li>
+                        <li class="edit-details p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/admin_edit-user-Hans.html" class="flex items-center">
+                                <img src="/graphics/icons/edit-details.png" alt="Edit Details Icon" class="menu-icon"> Edit Details
+                            </a>
+                        </li>
+                        <li class="move-to-archive p-2 hover:bg-gray-200 cursor-pointer">
+                            <a href="/html/admin/archive.html" class="flex items-center">
+                                <img src="/graphics/icons/move-to-archive-3.png" alt="Archive Icon" class="menu-icon"> Archive
+                            </a>
+                        </li>                        
+                    </ul>
+                </div>
+            </div>
+
+            <div id="noResultsMessage" class="text-center text-gray-500 mt-4 hidden" style="font-family:'Inter Medium', sans-serif;">
+                No users found matching your search.
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+        
+
+// 
+// 
+//  LAST ACTIVE DOWN BUTTON ASCENDING AND DESCENDING ORDER
+// 
+// 
+
+// Add this JavaScript code inside your `admin_part.js` file or a separate script block
+
+// Keep track of the current sort state
+let sortState = 0; // 0 - original, 1 - latest to oldest, 2 - oldest to latest
+
+// Function to sort users
+function sortUsers() {
+    const userRows = document.querySelectorAll('.user-row');
+    const sortedUserRows = Array.from(userRows);
+
+    // Get the last active date for each user
+    const getLastActiveDate = (userRow) => {
+        const lastActiveDate = userRow.querySelector('.last-active-date').textContent.trim();
+        return new Date(lastActiveDate);
+    };
+
+    // Sorting logic
+    if (sortState === 1) {
+        // Sort from latest to oldest (newest first)
+        sortedUserRows.sort((a, b) => getLastActiveDate(b) - getLastActiveDate(a));
+    } else if (sortState === 2) {
+        // Sort from oldest to latest (oldest first)
+        sortedUserRows.sort((a, b) => getLastActiveDate(a) - getLastActiveDate(b));
+    }
+
+    // Reset the order if sortState is 0 (original order)
+    if (sortState === 0) {
+        sortedUserRows.sort((a, b) => {
+            const aIndex = Array.from(userRows).indexOf(a);
+            const bIndex = Array.from(userRows).indexOf(b);
+            return aIndex - bIndex;
+        });
+    }
+
+    // Reattach the rows to the container in the new order
+    const userInformationContainer = document.querySelector('.user-information-container');
+    sortedUserRows.forEach(row => userInformationContainer.appendChild(row));
+
+    // Toggle sortState
+    sortState = (sortState + 1) % 3;
+}
+
+// Event listener for the arrow button click
+document.querySelector('.last-active-arrow-button').addEventListener('click', sortUsers);
+
+
